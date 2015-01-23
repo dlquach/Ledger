@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EDE25C6F1A72FA8600DE36DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C6E1A72FA8600DE36DC /* AppDelegate.swift */; };
+		EDE25C711A72FA8600DE36DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C701A72FA8600DE36DC /* ViewController.swift */; };
+		EDE25C741A72FA8600DE36DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE25C721A72FA8600DE36DC /* Main.storyboard */; };
+		EDE25C761A72FA8600DE36DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE25C751A72FA8600DE36DC /* Images.xcassets */; };
+		EDE25C791A72FA8600DE36DC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE25C771A72FA8600DE36DC /* LaunchScreen.xib */; };
+		EDE25C851A72FA8600DE36DC /* LedgerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C841A72FA8600DE36DC /* LedgerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDE25C7F1A72FA8600DE36DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDE25C611A72FA8600DE36DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDE25C681A72FA8600DE36DC;
+			remoteInfo = Ledger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EDE25C691A72FA8600DE36DC /* Ledger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ledger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDE25C6D1A72FA8600DE36DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDE25C6E1A72FA8600DE36DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EDE25C701A72FA8600DE36DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EDE25C731A72FA8600DE36DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDE25C751A72FA8600DE36DC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EDE25C781A72FA8600DE36DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EDE25C7E1A72FA8600DE36DC /* LedgerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LedgerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDE25C831A72FA8600DE36DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDE25C841A72FA8600DE36DC /* LedgerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDE25C661A72FA8600DE36DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDE25C7B1A72FA8600DE36DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDE25C601A72FA8600DE36DC = {
+			isa = PBXGroup;
+			children = (
+				EDE25C6B1A72FA8600DE36DC /* Ledger */,
+				EDE25C811A72FA8600DE36DC /* LedgerTests */,
+				EDE25C6A1A72FA8600DE36DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDE25C6A1A72FA8600DE36DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDE25C691A72FA8600DE36DC /* Ledger.app */,
+				EDE25C7E1A72FA8600DE36DC /* LedgerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDE25C6B1A72FA8600DE36DC /* Ledger */ = {
+			isa = PBXGroup;
+			children = (
+				EDE25C6E1A72FA8600DE36DC /* AppDelegate.swift */,
+				EDE25C701A72FA8600DE36DC /* ViewController.swift */,
+				EDE25C721A72FA8600DE36DC /* Main.storyboard */,
+				EDE25C751A72FA8600DE36DC /* Images.xcassets */,
+				EDE25C771A72FA8600DE36DC /* LaunchScreen.xib */,
+				EDE25C6C1A72FA8600DE36DC /* Supporting Files */,
+			);
+			path = Ledger;
+			sourceTree = "<group>";
+		};
+		EDE25C6C1A72FA8600DE36DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDE25C6D1A72FA8600DE36DC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDE25C811A72FA8600DE36DC /* LedgerTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDE25C841A72FA8600DE36DC /* LedgerTests.swift */,
+				EDE25C821A72FA8600DE36DC /* Supporting Files */,
+			);
+			path = LedgerTests;
+			sourceTree = "<group>";
+		};
+		EDE25C821A72FA8600DE36DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDE25C831A72FA8600DE36DC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDE25C681A72FA8600DE36DC /* Ledger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDE25C881A72FA8600DE36DC /* Build configuration list for PBXNativeTarget "Ledger" */;
+			buildPhases = (
+				EDE25C651A72FA8600DE36DC /* Sources */,
+				EDE25C661A72FA8600DE36DC /* Frameworks */,
+				EDE25C671A72FA8600DE36DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ledger;
+			productName = Ledger;
+			productReference = EDE25C691A72FA8600DE36DC /* Ledger.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EDE25C7D1A72FA8600DE36DC /* LedgerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDE25C8B1A72FA8600DE36DC /* Build configuration list for PBXNativeTarget "LedgerTests" */;
+			buildPhases = (
+				EDE25C7A1A72FA8600DE36DC /* Sources */,
+				EDE25C7B1A72FA8600DE36DC /* Frameworks */,
+				EDE25C7C1A72FA8600DE36DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDE25C801A72FA8600DE36DC /* PBXTargetDependency */,
+			);
+			name = LedgerTests;
+			productName = LedgerTests;
+			productReference = EDE25C7E1A72FA8600DE36DC /* LedgerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDE25C611A72FA8600DE36DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Derek Quach";
+				TargetAttributes = {
+					EDE25C681A72FA8600DE36DC = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					EDE25C7D1A72FA8600DE36DC = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = EDE25C681A72FA8600DE36DC;
+					};
+				};
+			};
+			buildConfigurationList = EDE25C641A72FA8600DE36DC /* Build configuration list for PBXProject "Ledger" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDE25C601A72FA8600DE36DC;
+			productRefGroup = EDE25C6A1A72FA8600DE36DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDE25C681A72FA8600DE36DC /* Ledger */,
+				EDE25C7D1A72FA8600DE36DC /* LedgerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDE25C671A72FA8600DE36DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDE25C741A72FA8600DE36DC /* Main.storyboard in Resources */,
+				EDE25C791A72FA8600DE36DC /* LaunchScreen.xib in Resources */,
+				EDE25C761A72FA8600DE36DC /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDE25C7C1A72FA8600DE36DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDE25C651A72FA8600DE36DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDE25C711A72FA8600DE36DC /* ViewController.swift in Sources */,
+				EDE25C6F1A72FA8600DE36DC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDE25C7A1A72FA8600DE36DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDE25C851A72FA8600DE36DC /* LedgerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDE25C801A72FA8600DE36DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDE25C681A72FA8600DE36DC /* Ledger */;
+			targetProxy = EDE25C7F1A72FA8600DE36DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EDE25C721A72FA8600DE36DC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDE25C731A72FA8600DE36DC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EDE25C771A72FA8600DE36DC /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDE25C781A72FA8600DE36DC /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDE25C861A72FA8600DE36DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EDE25C871A72FA8600DE36DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDE25C891A72FA8600DE36DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Ledger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EDE25C8A1A72FA8600DE36DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Ledger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EDE25C8C1A72FA8600DE36DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LedgerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ledger.app/Ledger";
+			};
+			name = Debug;
+		};
+		EDE25C8D1A72FA8600DE36DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LedgerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ledger.app/Ledger";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDE25C641A72FA8600DE36DC /* Build configuration list for PBXProject "Ledger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDE25C861A72FA8600DE36DC /* Debug */,
+				EDE25C871A72FA8600DE36DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDE25C881A72FA8600DE36DC /* Build configuration list for PBXNativeTarget "Ledger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDE25C891A72FA8600DE36DC /* Debug */,
+				EDE25C8A1A72FA8600DE36DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EDE25C8B1A72FA8600DE36DC /* Build configuration list for PBXNativeTarget "LedgerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDE25C8C1A72FA8600DE36DC /* Debug */,
+				EDE25C8D1A72FA8600DE36DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDE25C611A72FA8600DE36DC /* Project object */;
+}
