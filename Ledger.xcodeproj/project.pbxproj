@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ED79C0471A79ECC00084E40D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED79C0461A79ECC00084E40D /* CoreData.framework */; };
-		ED79C07B1A79ED640084E40D /* Ledger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED79C0791A79ED640084E40D /* Ledger.xcdatamodeld */; };
+		ED79C07E1A79F0050084E40D /* Ledger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED79C07C1A79F0050084E40D /* Ledger.xcdatamodeld */; };
 		ED7BFF511A79CCE700B95295 /* AddNewTransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BFF501A79CCE700B95295 /* AddNewTransactionController.swift */; };
 		EDE25C6F1A72FA8600DE36DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C6E1A72FA8600DE36DC /* AppDelegate.swift */; };
 		EDE25C711A72FA8600DE36DC /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C701A72FA8600DE36DC /* OverviewController.swift */; };
@@ -30,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		ED79C0461A79ECC00084E40D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		ED79C07A1A79ED640084E40D /* Ledger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ledger.xcdatamodel; sourceTree = "<group>"; };
+		ED79C07D1A79F0050084E40D /* Ledger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ledger.xcdatamodel; sourceTree = "<group>"; };
 		ED7BFF501A79CCE700B95295 /* AddNewTransactionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewTransactionController.swift; sourceTree = "<group>"; };
 		EDE25C691A72FA8600DE36DC /* Ledger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ledger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE25C6D1A72FA8600DE36DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		EDE25C601A72FA8600DE36DC = {
 			isa = PBXGroup;
 			children = (
-				ED79C0791A79ED640084E40D /* Ledger.xcdatamodeld */,
+				ED79C07C1A79F0050084E40D /* Ledger.xcdatamodeld */,
 				ED79C0461A79ECC00084E40D /* CoreData.framework */,
 				EDE25C6B1A72FA8600DE36DC /* Ledger */,
 				EDE25C811A72FA8600DE36DC /* LedgerTests */,
@@ -224,8 +224,8 @@
 			files = (
 				EDE25C711A72FA8600DE36DC /* OverviewController.swift in Sources */,
 				EDE25C6F1A72FA8600DE36DC /* AppDelegate.swift in Sources */,
+				ED79C07E1A79F0050084E40D /* Ledger.xcdatamodeld in Sources */,
 				ED7BFF511A79CCE700B95295 /* AddNewTransactionController.swift in Sources */,
-				ED79C07B1A79ED640084E40D /* Ledger.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,12 +431,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		ED79C0791A79ED640084E40D /* Ledger.xcdatamodeld */ = {
+		ED79C07C1A79F0050084E40D /* Ledger.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				ED79C07A1A79ED640084E40D /* Ledger.xcdatamodel */,
+				ED79C07D1A79F0050084E40D /* Ledger.xcdatamodel */,
 			);
-			currentVersion = ED79C07A1A79ED640084E40D /* Ledger.xcdatamodel */;
+			currentVersion = ED79C07D1A79F0050084E40D /* Ledger.xcdatamodel */;
 			path = Ledger.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

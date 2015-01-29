@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddNewTransactionController: UIViewController {
     
@@ -16,6 +17,22 @@ class AddNewTransactionController: UIViewController {
     @IBAction func acceptButtonPressed(sender: AnyObject) {
         println(nameField.text)
         println(amountField.text)
+        
+        // Save the amounts to CoreData
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext! // The '!' means you are assuring mangagedObjectContext is not nil
+        
+        let entity = NSEntityDescription.entityForName("Person", inManagedObjectContext: managedContext)
+        
+        let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        person.setValue(nameField.text, forKey: "name")
+        person.setValue((amountField.text as NSString).floatValue, forKey: "amount")
+        
+        var error: NSError?
+        if !managedContext.save(&error) {
+            println("Could not save, \(error), \(error?.userInfo)")
+        }
+            
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
