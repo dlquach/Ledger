@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EDE25C6F1A72FA8600DE36DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C6E1A72FA8600DE36DC /* AppDelegate.swift */; };
-		EDE25C711A72FA8600DE36DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C701A72FA8600DE36DC /* ViewController.swift */; };
+		EDE25C711A72FA8600DE36DC /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C701A72FA8600DE36DC /* OverviewController.swift */; };
 		EDE25C741A72FA8600DE36DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE25C721A72FA8600DE36DC /* Main.storyboard */; };
 		EDE25C761A72FA8600DE36DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE25C751A72FA8600DE36DC /* Images.xcassets */; };
 		EDE25C791A72FA8600DE36DC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE25C771A72FA8600DE36DC /* LaunchScreen.xib */; };
@@ -29,7 +29,7 @@
 		EDE25C691A72FA8600DE36DC /* Ledger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ledger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE25C6D1A72FA8600DE36DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDE25C6E1A72FA8600DE36DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EDE25C701A72FA8600DE36DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EDE25C701A72FA8600DE36DC /* OverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewController.swift; sourceTree = "<group>"; };
 		EDE25C731A72FA8600DE36DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDE25C751A72FA8600DE36DC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EDE25C781A72FA8600DE36DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				EDE25C6E1A72FA8600DE36DC /* AppDelegate.swift */,
-				EDE25C701A72FA8600DE36DC /* ViewController.swift */,
+				EDE25C701A72FA8600DE36DC /* OverviewController.swift */,
 				EDE25C721A72FA8600DE36DC /* Main.storyboard */,
 				EDE25C751A72FA8600DE36DC /* Images.xcassets */,
 				EDE25C771A72FA8600DE36DC /* LaunchScreen.xib */,
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDE25C711A72FA8600DE36DC /* ViewController.swift in Sources */,
+				EDE25C711A72FA8600DE36DC /* OverviewController.swift in Sources */,
 				EDE25C6F1A72FA8600DE36DC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  OverviewController.swift
 //  Ledger
 //
 //  Created by Derek Quach on 1/23/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class OverviewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
