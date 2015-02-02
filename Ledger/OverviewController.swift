@@ -40,7 +40,7 @@ class OverviewController: UIViewController, UITableViewDataSource {
             for account in accounts {
                 println(account.valueForKey("name"))
                 println(account.valueForKey("amount"))
-                
+                tableView.reloadData()
             }
         }
         else {
