@@ -71,7 +71,7 @@ class OverviewController: UIViewController, UITableViewDataSource {
                 as UITableViewCell
             
             cell.textLabel.text =
-                (accounts[indexPath.row].valueForKey("name") as NSString) + " - " +
+                (accounts[indexPath.row].valueForKey("name") as NSString) + " : " +
                 NSString(format: "%.2f", (accounts[indexPath.row].valueForKey("amount")) as Float)
             
             return cell
