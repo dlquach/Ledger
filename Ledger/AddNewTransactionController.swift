@@ -20,7 +20,6 @@ class AddNewTransactionController: UIViewController {
         println(amountField.text)
         
         // See if the person already exists or not. If so, add the amounts instead of creating a new entity
-        
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext = appDelegate.managedObjectContext! // The '!' means you are assuring mangagedObjectContext is not nil
         
@@ -31,7 +30,7 @@ class AddNewTransactionController: UIViewController {
         var error: NSError?
         let entity = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]!
         
-        if entity.count == 1 {
+        if entity.count != 0 {
             println("Object already exists")
             
             let person = entity[0]
@@ -40,6 +39,7 @@ class AddNewTransactionController: UIViewController {
         else {
             println("Object does not exist")
             
+            // Create a new entity to store
             let entity = NSEntityDescription.entityForName("Person", inManagedObjectContext: managedContext)
             
             let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)

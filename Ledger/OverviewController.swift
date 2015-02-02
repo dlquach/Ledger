@@ -9,14 +9,20 @@
 import UIKit
 import CoreData
 
-class OverviewController: UITableViewController {
+class OverviewController: UIViewController, UITableViewDataSource {
 
     var accounts = [NSManagedObject]()
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        title = "Balances"
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
+    
+    
+
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,7 +55,27 @@ class OverviewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    // MARK: UITableViewDataSource
+    func tableView(tableView: UITableView,
+        numberOfRowsInSection section: Int) -> Int {
+            println(accounts.count)
+            return accounts.count
+    }
+    
+    func tableView(tableView: UITableView,
+        cellForRowAtIndexPath
+        indexPath: NSIndexPath) -> UITableViewCell {
+            let cell =
+            tableView.dequeueReusableCellWithIdentifier("Cell")
+                as UITableViewCell
+            
+            cell.textLabel.text =
+                (accounts[indexPath.row].valueForKey("name") as NSString) + " - " +
+                NSString(format: "%.2f", (accounts[indexPath.row].valueForKey("amount")) as Float)
+            
+            return cell
+    }
 
 }
 

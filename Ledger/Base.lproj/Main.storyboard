@@ -21,7 +21,7 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="gCf-rl-sVP" id="Ncx-Ap-WBD"/>
+                            <outlet property="dataSource" destination="gCf-rl-sVP" id="neF-qH-nH6"/>
                             <outlet property="delegate" destination="gCf-rl-sVP" id="nP4-rd-ez2"/>
                         </connections>
                     </tableView>
@@ -33,6 +33,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="FWc-Co-mH1" id="NAc-13-CED"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3hq-B5-zNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
