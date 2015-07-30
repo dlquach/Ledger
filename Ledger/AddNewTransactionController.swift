@@ -13,11 +13,12 @@ class AddNewTransactionController: UIViewController {
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var amountField: UITextField!
-    
+    @IBOutlet weak var reasonField: UITextField!
     
     @IBAction func acceptButtonPressed(sender: AnyObject) {
         println(nameField.text)
         println(amountField.text)
+        println(reasonField.text)
         
         // See if the person already exists or not. If so, add the amounts instead of creating a new entity
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate

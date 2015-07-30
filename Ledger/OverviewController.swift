@@ -19,10 +19,9 @@ class OverviewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         title = "Balances"
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.allowsMultipleSelectionDuringEditing = false
     }
     
-    
-
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,9 +37,7 @@ class OverviewController: UIViewController, UITableViewDataSource {
         if let results = fetchedResults {
             accounts = results
             for account in accounts {
-                println(account.valueForKey("name"))
-                println(account.valueForKey("amount"))
-                tableView.reloadData()
+                tableView.reloadData() // Is this really efficient?
             }
         }
         else {
@@ -56,10 +53,15 @@ class OverviewController: UIViewController, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(tableView: UITableView,
+        didSelectRowAtIndexPath
+        indexPath: NSIndexPath) {
+            println(indexPath.row)
+    }
+    
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
-            println(accounts.count)
             return accounts.count
     }
     
@@ -70,12 +72,30 @@ class OverviewController: UIViewController, UITableViewDataSource {
             tableView.dequeueReusableCellWithIdentifier("Cell")
                 as UITableViewCell
             
-            cell.textLabel.text =
+            cell.textLabel?.text =
                 (accounts[indexPath.row].valueForKey("name") as NSString) + " : " +
                 NSString(format: "%.2f", (accounts[indexPath.row].valueForKey("amount")) as Float)
             
             return cell
     }
-
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            let managedContext  = appDelegate.managedObjectContext!
+            managedContext.deleteObject(accounts[indexPath.row])
+            var error: NSError?
+            if !managedContext.save(&error) {
+                println("Could not save the delete!")
+            }
+            accounts.removeAtIndex(indexPath.row)
+            tableView.reloadData()
+        }
+    }
+  
 }
 

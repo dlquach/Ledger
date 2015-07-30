@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bLe-9L-pfA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bLe-9L-pfA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Ledger-->
@@ -58,15 +58,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssS-ni-Dhw">
-                                <rect key="frame" x="285" y="290" width="30" height="30"/>
-                                <state key="normal" title="OK">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="acceptButtonPressed:" destination="91O-01-C5v" eventType="touchUpInside" id="aFg-TR-ttD"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyo-kh-41m">
                                 <rect key="frame" x="252" y="252" width="97" height="30"/>
                                 <constraints>
@@ -75,14 +66,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reason" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSe-SG-7UI">
+                                <rect key="frame" x="252" y="290" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssS-ni-Dhw">
+                                <rect key="frame" x="285" y="336" width="30" height="30"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="acceptButtonPressed:" destination="91O-01-C5v" eventType="touchUpInside" id="aFg-TR-ttD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="ssS-ni-Dhw" secondAttribute="centerY" constant="-5" id="1OQ-2B-RMH"/>
+                            <constraint firstAttribute="centerY" secondItem="ssS-ni-Dhw" secondAttribute="centerY" constant="-51" id="1OQ-2B-RMH"/>
+                            <constraint firstItem="cSe-SG-7UI" firstAttribute="centerY" secondItem="CjS-dv-cGK" secondAttribute="centerY" constant="5" id="1ub-4v-3UN"/>
                             <constraint firstItem="yyo-kh-41m" firstAttribute="top" secondItem="Bme-oa-KNg" secondAttribute="bottom" constant="8" symbolic="YES" id="Ioz-zE-krg"/>
                             <constraint firstItem="yyo-kh-41m" firstAttribute="centerX" secondItem="ssS-ni-Dhw" secondAttribute="centerX" id="LFH-iL-J7d"/>
-                            <constraint firstItem="ssS-ni-Dhw" firstAttribute="top" secondItem="yyo-kh-41m" secondAttribute="bottom" constant="8" symbolic="YES" id="XRu-3H-Ebb"/>
+                            <constraint firstItem="ssS-ni-Dhw" firstAttribute="top" secondItem="yyo-kh-41m" secondAttribute="bottom" constant="54" id="XRu-3H-Ebb"/>
                             <constraint firstItem="yyo-kh-41m" firstAttribute="leading" secondItem="Bme-oa-KNg" secondAttribute="leading" id="dap-4m-IwP"/>
+                            <constraint firstItem="cSe-SG-7UI" firstAttribute="leading" secondItem="yyo-kh-41m" secondAttribute="leading" id="fww-pX-lQw"/>
+                            <constraint firstItem="cSe-SG-7UI" firstAttribute="trailing" secondItem="yyo-kh-41m" secondAttribute="trailing" id="hXS-Fb-wUq"/>
                             <constraint firstAttribute="centerX" secondItem="ssS-ni-Dhw" secondAttribute="centerX" id="pUB-PG-25F"/>
                             <constraint firstItem="yyo-kh-41m" firstAttribute="trailing" secondItem="Bme-oa-KNg" secondAttribute="trailing" id="rZ1-uE-p8j"/>
                         </constraints>
@@ -90,6 +98,7 @@
                     <connections>
                         <outlet property="amountField" destination="yyo-kh-41m" id="vre-CU-D0i"/>
                         <outlet property="nameField" destination="Bme-oa-KNg" id="lsz-KH-v0J"/>
+                        <outlet property="reasonField" destination="cSe-SG-7UI" id="3A5-fW-OV7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBQ-xW-gPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
