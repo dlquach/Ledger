@@ -16,39 +16,37 @@ class AddNewTransactionController: UIViewController {
     @IBOutlet weak var reasonField: UITextField!
     
     @IBAction func acceptButtonPressed(sender: AnyObject) {
-        println(nameField.text)
-        println(amountField.text)
-        println(reasonField.text)
+        let name = nameField.text
+        let amount = (amountField.text as NSString).floatValue
+        let reason = reasonField.text
+        var error: NSError?
         
-        // See if the person already exists or not. If so, add the amounts instead of creating a new entity
+        println(amountField.text)
+        println(reason)
+        
+        // See if the person already exists or not. 
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext = appDelegate.managedObjectContext! // The '!' means you are assuring mangagedObjectContext is not nil
-        
+
         let fetchRequest = NSFetchRequest(entityName: "Person")
-        let predicate = NSPredicate(format: "name == %@", nameField.text)
+        let predicate = NSPredicate(format: "name == %@", name)
         fetchRequest.predicate = predicate
-        fetchRequest.fetchLimit = 1
-        var error: NSError?
-        let entity = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]!
+        let people = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]!
         
-        if entity.count != 0 {
-            println("Object already exists")
-            
-            let person = entity[0]
-            person.setValue(person.valueForKey("amount")!.floatValue + (amountField.text as NSString).floatValue, forKey: "amount")
-        }
-        else {
-            println("Object does not exist")
-            
-            // Create a new entity to store
+        // This person doesn't exist in CoreData, create an entry for them.
+        if people.count == 0 {
             let entity = NSEntityDescription.entityForName("Person", inManagedObjectContext: managedContext)
-            
             let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-            person.setValue(nameField.text, forKey: "name")
-            person.setValue((amountField.text as NSString).floatValue, forKey: "amount")
-            
-            
+            person.setValue(name, forKey: "name")
         }
+        
+        // Create a new transactions entity to store
+        let entity = NSEntityDescription.entityForName("Transactions", inManagedObjectContext: managedContext)
+        
+        let transaction = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        transaction.setValue(name, forKey: "name")
+        transaction.setValue(amount, forKey: "amount")
+        transaction.setValue(reason, forKey: "reason")
         
         // Save the amounts to CoreData
         if !managedContext.save(&error) {
@@ -61,6 +59,7 @@ class AddNewTransactionController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.title = "New Transaction"
     }
     
     

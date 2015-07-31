@@ -11,14 +11,12 @@ import CoreData
 
 class OverviewController: UIViewController, UITableViewDataSource {
 
-    var accounts = [NSManagedObject]()
+    var people = [NSManagedObject]()
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Balances"
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         self.tableView.allowsMultipleSelectionDuringEditing = false
     }
     
@@ -35,17 +33,14 @@ class OverviewController: UIViewController, UITableViewDataSource {
         let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
         
         if let results = fetchedResults {
-            accounts = results
-            for account in accounts {
+            people = results
+            for person in people {
                 tableView.reloadData() // Is this really efficient?
             }
         }
         else {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
-        
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,26 +51,53 @@ class OverviewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView,
         didSelectRowAtIndexPath
         indexPath: NSIndexPath) {
-            println(indexPath.row)
+            let vc = AccountDetailsController()
+            vc.title = people[indexPath.row].valueForKey("name") as NSString
+            vc.account = people[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
-            return accounts.count
+            return people.count
     }
     
     func tableView(tableView: UITableView,
         cellForRowAtIndexPath
         indexPath: NSIndexPath) -> UITableViewCell {
             let cell =
-            tableView.dequeueReusableCellWithIdentifier("Cell")
-                as UITableViewCell
+            tableView.dequeueReusableCellWithIdentifier("accountCell")
+                as AccountCell
+   
+            let name = people[indexPath.row].valueForKey("name") as NSString
             
-            cell.textLabel?.text =
-                (accounts[indexPath.row].valueForKey("name") as NSString) + " : " +
-                NSString(format: "%.2f", (accounts[indexPath.row].valueForKey("amount")) as Float)
+            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            let managedContext  = appDelegate.managedObjectContext!
             
+            let fetchRequest = NSFetchRequest(entityName: "Transactions")
+            let predicate = NSPredicate(format: "name == %@", name)
+            fetchRequest.predicate = predicate
+            var error: NSError?
+
+            let entities = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]!
+
+            var amount: Float = 0.0
+            if entities.count != 0 {
+                for entity in entities {
+                    amount += entity.valueForKey("amount") as Float
+                }
+            }
+            
+            cell.nameLabel.text = name
+            cell.amountLabel.text = (NSString(format: "%.2f", amount))
+            
+            if amount >= 0 {
+                cell.backgroundColor = UIColor(red: 53/255, green: 139/255, blue: 101/255, alpha: 1)
+            }
+            else {
+                cell.backgroundColor = UIColor(red: 167/255, green: 47/255, blue: 59/255, alpha: 1)
+            }
             return cell
     }
     
@@ -87,14 +109,31 @@ class OverviewController: UIViewController, UITableViewDataSource {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
             let managedContext  = appDelegate.managedObjectContext!
-            managedContext.deleteObject(accounts[indexPath.row])
+            
+            // Delete all the transcations associated with this person
+            let fetchRequest = NSFetchRequest(entityName: "Transactions")
+            let predicate = NSPredicate(format: "name == %@", people[indexPath.row].valueForKey("name") as NSString)
+            fetchRequest.predicate = predicate
             var error: NSError?
+            
+            let entities = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]!
+            
+            if entities.count != 0 {
+                for entity in entities {
+                    managedContext.deleteObject(entity)
+                }
+            }
+            
+            managedContext.deleteObject(people[indexPath.row])
+
             if !managedContext.save(&error) {
                 println("Could not save the delete!")
             }
-            accounts.removeAtIndex(indexPath.row)
+            people.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             tableView.reloadData()
         }
+
     }
   
 }
