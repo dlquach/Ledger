@@ -18,11 +18,19 @@ class OverviewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.allowsMultipleSelectionDuringEditing = false
+        
     }
     
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barTintColor = ColorStyles.white
+        self.navigationController?.navigationBar.tintColor = ColorStyles.blue
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName :ColorStyles.blue]
+      
+        // Re-enable the status bar
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Fade)
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext  = appDelegate.managedObjectContext!
@@ -53,7 +61,6 @@ class OverviewController: UIViewController, UITableViewDataSource {
         indexPath: NSIndexPath) {
             //let vc = AccountDetailsController()
             let vc = storyboard?.instantiateViewControllerWithIdentifier("AccountDetails") as AccountDetailsController
-            vc.title = people[indexPath.row].valueForKey("name") as NSString
             vc.account = people[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -136,6 +143,7 @@ class OverviewController: UIViewController, UITableViewDataSource {
         }
 
     }
+    
   
 }
 

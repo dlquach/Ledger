@@ -15,10 +15,12 @@ class AddNewTransactionController: UIViewController {
     @IBOutlet weak var amountField: UITextField!
     @IBOutlet weak var reasonField: UITextField!
     
+    var defaultName: String?
+    
     @IBAction func acceptButtonPressed(sender: AnyObject) {
-        let name = nameField.text
+        let name = nameField.text.capitalizedString
         let amount = (amountField.text as NSString).floatValue
-        let reason = reasonField.text
+        let reason = reasonField.text.capitalizedString
         var error: NSError?
         
         println(amountField.text)
@@ -59,7 +61,16 @@ class AddNewTransactionController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.title = "New Transaction"
+        var titleString = "New Transcation"
+
+        // See if this page is for a specific person
+        if (defaultName != nil) {
+            self.nameField.text = defaultName
+            titleString += " with " + defaultName!
+            self.nameField.enabled = false
+            self.nameField.borderStyle = UITextBorderStyle.None
+        }
+        self.title = titleString
     }
     
     
