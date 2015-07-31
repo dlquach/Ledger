@@ -51,7 +51,8 @@ class OverviewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView,
         didSelectRowAtIndexPath
         indexPath: NSIndexPath) {
-            let vc = AccountDetailsController()
+            //let vc = AccountDetailsController()
+            let vc = storyboard?.instantiateViewControllerWithIdentifier("AccountDetails") as AccountDetailsController
             vc.title = people[indexPath.row].valueForKey("name") as NSString
             vc.account = people[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
