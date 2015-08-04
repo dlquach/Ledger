@@ -98,8 +98,15 @@ class OverviewController: UIViewController, UITableViewDataSource {
                 }
             }
             
+            if amount >= 0 {
+                cell.amountLabel.textColor = ColorStyles.teal
+            }
+            else {
+                cell.amountLabel.textColor = ColorStyles.red
+            }
+            
             cell.nameLabel.text = name
-            cell.amountLabel.text = (NSString(format: "$%.2f", amount))
+            cell.amountLabel.text = (NSString(format: "$%.2f", abs(amount)))
             if entities.count == 1 {
                 cell.transactionLabel.text = (NSString(format: "%d Transaction", entities.count))
             }
@@ -107,12 +114,7 @@ class OverviewController: UIViewController, UITableViewDataSource {
                 cell.transactionLabel.text = (NSString(format: "%d Transactions", entities.count))
             }
             
-            if amount >= 0 {
-                cell.amountLabel.textColor = ColorStyles.teal
-            }
-            else {
-                cell.amountLabel.textColor = ColorStyles.red
-            }
+            
             return cell
     }
     
