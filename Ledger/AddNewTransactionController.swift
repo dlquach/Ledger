@@ -60,16 +60,18 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         var titleString = "New Transcation"
-
+        
+        self.setupTextViews()
+        
         // See if this page is for a specific person
         if (defaultName != nil) {
             self.nameField.text = defaultName
             titleString += " with " + defaultName!
             self.nameField.editable = false
+            self.nameField.textColor = UIColor.darkGrayColor()
         }
-        self.title = titleString
         
-        self.setupTextViews()
+        self.title = titleString
         
     }
     
@@ -112,7 +114,14 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        let maxChars = 20
+        var maxChars:Int
+        
+        if textView == reasonField {
+            maxChars = 35
+        }
+        else {
+            maxChars = 20
+        }
         //If the text is larger than the maxtext, the return is false
         return countElements(textView.text) + (countElements(text) - range.length) <= maxChars
         
