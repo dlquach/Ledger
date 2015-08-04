@@ -257,59 +257,72 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssS-ni-Dhw">
-                                <rect key="frame" x="285" y="263" width="30" height="30"/>
+                                <rect key="frame" x="16" y="250" width="568" height="30"/>
+                                <color key="backgroundColor" red="0.16862745100000001" green="0.75294117650000003" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="FB1-jF-wvv"/>
+                                    <constraint firstAttribute="height" constant="30" id="Ze5-HM-Dbw"/>
                                 </constraints>
                                 <state key="normal" title="OK">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="acceptButtonPressed:" destination="91O-01-C5v" eventType="touchUpInside" id="aFg-TR-ttD"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="Reason" scrollEnabled="NO" keyboardDismissMode="onDrag" text="Reason" translatesAutoresizingMaskIntoConstraints="NO" id="ybi-fc-3qe">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" keyboardDismissMode="onDrag" text="Person" translatesAutoresizingMaskIntoConstraints="NO" id="iIm-79-kkL">
+                                <rect key="frame" x="16" y="72" width="204" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="204" id="bWa-pw-FmP"/>
+                                    <constraint firstAttribute="height" constant="34" id="o5h-XT-Bwc"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="tCP-yK-JAM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bWa-pw-FmP"/>
+                                        <exclude reference="o5h-XT-Bwc"/>
+                                        <exclude reference="tCP-yK-JAM"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" keyboardDismissMode="onDrag" text="Amount" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="9f4-Qb-BGx">
+                                <rect key="frame" x="459" y="72" width="125" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="foq-3q-bcg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="decimalPad"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="Reason" scrollEnabled="NO" keyboardDismissMode="onDrag" text="Reason" translatesAutoresizingMaskIntoConstraints="NO" id="ybi-fc-3qe">
                                 <rect key="frame" x="16" y="114" width="568" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="onDrag" text="Amount" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="9f4-Qb-BGx">
-                                <rect key="frame" x="459" y="72" width="125" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="vpA-O2-Znb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="decimalPad"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="onDrag" text="Person" translatesAutoresizingMaskIntoConstraints="NO" id="iIm-79-kkL">
-                                <rect key="frame" x="16" y="72" width="204" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="204" id="3zz-Lr-lB7"/>
-                                    <constraint firstAttribute="height" constant="34" id="UWH-5m-9hn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9f4-Qb-BGx" firstAttribute="top" secondItem="iIm-79-kkL" secondAttribute="top" id="2gI-1n-W3w"/>
-                            <constraint firstItem="ybi-fc-3qe" firstAttribute="leading" secondItem="CjS-dv-cGK" secondAttribute="leadingMargin" id="7g3-zj-jNw"/>
-                            <constraint firstItem="ybi-fc-3qe" firstAttribute="centerX" secondItem="ssS-ni-Dhw" secondAttribute="centerX" id="Eia-JC-bBf"/>
-                            <constraint firstItem="ybi-fc-3qe" firstAttribute="top" secondItem="9f4-Qb-BGx" secondAttribute="bottom" constant="8" symbolic="YES" id="IKz-7w-RMr"/>
-                            <constraint firstItem="iIm-79-kkL" firstAttribute="top" secondItem="T7w-0L-9uk" secondAttribute="bottom" constant="8" symbolic="YES" id="KiQ-9u-Zcs"/>
-                            <constraint firstItem="ybi-fc-3qe" firstAttribute="trailing" secondItem="9f4-Qb-BGx" secondAttribute="trailing" id="OD4-Ws-y4N"/>
-                            <constraint firstItem="ybi-fc-3qe" firstAttribute="top" secondItem="iIm-79-kkL" secondAttribute="bottom" constant="8" symbolic="YES" id="UAy-95-Hs7"/>
-                            <constraint firstItem="ybi-fc-3qe" firstAttribute="trailing" secondItem="CjS-dv-cGK" secondAttribute="trailingMargin" id="eDJ-F0-0rn"/>
-                            <constraint firstItem="ybi-fc-3qe" firstAttribute="leading" secondItem="iIm-79-kkL" secondAttribute="leading" id="ekf-9I-eTE"/>
-                            <constraint firstItem="ssS-ni-Dhw" firstAttribute="top" secondItem="ybi-fc-3qe" secondAttribute="bottom" constant="21" id="iPy-fs-66t"/>
-                            <constraint firstItem="NDX-ds-8a7" firstAttribute="top" secondItem="ssS-ni-Dhw" secondAttribute="bottom" constant="307" id="zgY-18-gQd"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="top" secondItem="9f4-Qb-BGx" secondAttribute="bottom" constant="8" id="Bkc-Rc-UwQ"/>
+                            <constraint firstItem="ssS-ni-Dhw" firstAttribute="trailing" secondItem="CjS-dv-cGK" secondAttribute="trailingMargin" id="CO3-AW-iTf"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="leading" secondItem="CjS-dv-cGK" secondAttribute="leadingMargin" id="Cgh-wr-Ut9"/>
+                            <constraint firstItem="ssS-ni-Dhw" firstAttribute="leading" secondItem="CjS-dv-cGK" secondAttribute="leadingMargin" id="Dqf-Ws-kJQ"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="trailing" secondItem="CjS-dv-cGK" secondAttribute="trailingMargin" id="TQx-1X-OfV"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="trailing" secondItem="9f4-Qb-BGx" secondAttribute="trailing" id="TsH-Dp-kdV"/>
+                            <constraint firstItem="9f4-Qb-BGx" firstAttribute="leading" secondItem="iIm-79-kkL" secondAttribute="trailing" id="WVt-sB-3Fm"/>
+                            <constraint firstItem="ssS-ni-Dhw" firstAttribute="top" secondItem="ybi-fc-3qe" secondAttribute="bottom" constant="8" id="aaI-wd-gOM"/>
+                            <constraint firstItem="iIm-79-kkL" firstAttribute="top" secondItem="9f4-Qb-BGx" secondAttribute="top" id="kfe-AV-AbE"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="leading" secondItem="iIm-79-kkL" secondAttribute="leading" id="mwI-VL-Kud"/>
+                            <constraint firstItem="NDX-ds-8a7" firstAttribute="top" secondItem="ssS-ni-Dhw" secondAttribute="bottom" constant="320" id="r9e-s4-GoM"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="top" secondItem="iIm-79-kkL" secondAttribute="bottom" constant="8" symbolic="YES" id="rMf-j5-7Ai"/>
+                            <constraint firstItem="iIm-79-kkL" firstAttribute="top" secondItem="T7w-0L-9uk" secondAttribute="bottom" constant="8" symbolic="YES" id="xIr-nN-l8b"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="acceptButton" destination="ssS-ni-Dhw" id="1XR-BM-tDA"/>
                         <outlet property="amountField" destination="9f4-Qb-BGx" id="Kdo-Ez-Iix"/>
                         <outlet property="nameField" destination="iIm-79-kkL" id="Y92-Wq-Evf"/>
                         <outlet property="reasonField" destination="ybi-fc-3qe" id="dYq-PE-TAJ"/>

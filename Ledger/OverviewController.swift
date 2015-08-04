@@ -100,7 +100,12 @@ class OverviewController: UIViewController, UITableViewDataSource {
             
             cell.nameLabel.text = name
             cell.amountLabel.text = (NSString(format: "$%.2f", amount))
-            cell.transactionLabel.text = (NSString(format: "%d Transactions", entities.count))
+            if entities.count == 1 {
+                cell.transactionLabel.text = (NSString(format: "%d Transaction", entities.count))
+            }
+            else {
+                cell.transactionLabel.text = (NSString(format: "%d Transactions", entities.count))
+            }
             
             if amount >= 0 {
                 cell.amountLabel.textColor = ColorStyles.teal

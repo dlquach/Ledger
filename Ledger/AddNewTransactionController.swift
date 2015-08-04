@@ -14,6 +14,7 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var nameField: UITextView!
     @IBOutlet weak var amountField: UITextView!
     @IBOutlet weak var reasonField: UITextView!
+    @IBOutlet weak var acceptButton: UIButton!
     
     var defaultName: String?
     
@@ -77,6 +78,8 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         self.navigationController?.navigationBar.tintColor = ColorStyles.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName :ColorStyles.black]
         self.navigationController?.hideShadow = false
+        
+        self.acceptButton.backgroundColor = ColorStyles.green
     }
     
     
@@ -106,6 +109,13 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
             }
             textView.textColor = UIColor.lightGrayColor()
         }
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        let maxChars = 20
+        //If the text is larger than the maxtext, the return is false
+        return countElements(textView.text) + (countElements(text) - range.length) <= maxChars
+        
     }
     
     // Other functions
