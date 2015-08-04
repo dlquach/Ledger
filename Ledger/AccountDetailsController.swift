@@ -167,7 +167,6 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
             }
             self.transactions.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            tableView.reloadData()
             self.updateHeaderView()
         }
         

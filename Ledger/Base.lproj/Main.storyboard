@@ -14,6 +14,8 @@
             <string>Bariol-Regular</string>
             <string>Bariol-Regular</string>
             <string>Bariol-Regular</string>
+            <string>Bariol-Regular</string>
+            <string>Bariol-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -189,13 +191,13 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="221" id="g2M-yF-w6N"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oj-T3-Nsb">
                                                     <rect key="frame" x="442" y="11" width="150" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

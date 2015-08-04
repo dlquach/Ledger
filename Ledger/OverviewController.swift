@@ -141,7 +141,6 @@ class OverviewController: UIViewController, UITableViewDataSource {
             }
             people.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            tableView.reloadData()
         }
 
     }
