@@ -124,7 +124,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="325" id="2VL-HW-I1I"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="23"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -133,7 +133,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="132" id="Fyg-Wj-0Yj"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="15"/>
                                         <color key="textColor" red="0.30588235294117649" green="0.27535644091470385" blue="0.24912004104935959" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -151,7 +151,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="584" id="isU-Va-Pr4"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="25"/>
+                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="28"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -179,11 +179,40 @@
                                     <constraint firstAttribute="height" constant="600" id="hdo-Ll-Xx2"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="transactionCell" id="rqq-4O-Gc2" customClass="AccountCell" customModule="Ledger" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="transactionCell" id="rqq-4O-Gc2" customClass="TransactionCell" customModule="Ledger" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rqq-4O-Gc2" id="dPs-aB-yZN">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dn5-R4-4Of">
+                                                    <rect key="frame" x="8" y="11" width="221" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="221" id="g2M-yF-w6N"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oj-T3-Nsb">
+                                                    <rect key="frame" x="442" y="11" width="150" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Dn5-R4-4Of" firstAttribute="top" secondItem="dPs-aB-yZN" secondAttribute="topMargin" constant="3" id="7Z6-5B-wJl"/>
+                                                <constraint firstItem="9Oj-T3-Nsb" firstAttribute="trailing" secondItem="dPs-aB-yZN" secondAttribute="trailingMargin" id="C77-9b-O95"/>
+                                                <constraint firstItem="9Oj-T3-Nsb" firstAttribute="firstBaseline" secondItem="Dn5-R4-4Of" secondAttribute="firstBaseline" id="Dej-OA-DT4"/>
+                                                <constraint firstItem="Dn5-R4-4Of" firstAttribute="leading" secondItem="dPs-aB-yZN" secondAttribute="leadingMargin" id="Nf9-8W-Qah"/>
+                                                <constraint firstItem="Dn5-R4-4Of" firstAttribute="centerY" secondItem="dPs-aB-yZN" secondAttribute="centerY" id="lx1-1a-LK1"/>
+                                                <constraint firstItem="Dn5-R4-4Of" firstAttribute="baseline" secondItem="9Oj-T3-Nsb" secondAttribute="baseline" id="sNM-r0-5Nq"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="9Oj-T3-Nsb" id="LE1-4f-n5k"/>
+                                            <outlet property="reasonLabel" destination="Dn5-R4-4Of" id="vWd-nO-RIc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

@@ -22,6 +22,7 @@
 		EDE25C791A72FA8600DE36DC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE25C771A72FA8600DE36DC /* LaunchScreen.xib */; };
 		EDE25C851A72FA8600DE36DC /* LedgerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C841A72FA8600DE36DC /* LedgerTests.swift */; };
 		EDF55AD41B70688300D3D2ED /* UIBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF55AD31B70688300D3D2ED /* UIBarExtension.swift */; };
+		EDF55AD61B706DC300D3D2ED /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF55AD51B706DC300D3D2ED /* TransactionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		EDE25C831A72FA8600DE36DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDE25C841A72FA8600DE36DC /* LedgerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerTests.swift; sourceTree = "<group>"; };
 		EDF55AD31B70688300D3D2ED /* UIBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarExtension.swift; sourceTree = "<group>"; };
+		EDF55AD51B706DC300D3D2ED /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				EDC7E27F1B6B2A4F0062E703 /* AccountCell.swift */,
+				EDF55AD51B706DC300D3D2ED /* TransactionCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				ED9DF43C1B6BFBC70088FB4A /* ColorStyles.swift in Sources */,
 				EDE25C6F1A72FA8600DE36DC /* AppDelegate.swift in Sources */,
 				ED1727211B6ACBC200E6DAB1 /* AccountDetailsController.swift in Sources */,
+				EDF55AD61B706DC300D3D2ED /* TransactionCell.swift in Sources */,
 				ED7BFF511A79CCE700B95295 /* AddNewTransactionController.swift in Sources */,
 				EDC7E2801B6B2A4F0062E703 /* AccountCell.swift in Sources */,
 				EDF55AD41B70688300D3D2ED /* UIBarExtension.swift in Sources */,

@@ -124,10 +124,20 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("transactionCell") as UITableViewCell
+        let cell:TransactionCell = tableView.dequeueReusableCellWithIdentifier("transactionCell") as TransactionCell
         let transaction = self.transactions[indexPath.row]
         
-        cell.textLabel?.text = transaction.0 + " : " + NSString(format: "%.2f", transaction.1)
+        let amount = transaction.1
+        
+        cell.reasonLabel.text = transaction.0
+        cell.amountLabel.text = NSString(format: "$%.2f", amount)
+        
+        if amount >= 0 {
+            cell.amountLabel.textColor = ColorStyles.teal
+        }
+        else {
+            cell.amountLabel.textColor = ColorStyles.red
+        }
         return cell
         
     }
