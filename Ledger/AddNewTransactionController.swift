@@ -9,11 +9,11 @@
 import UIKit
 import CoreData
 
-class AddNewTransactionController: UIViewController {
+class AddNewTransactionController: UIViewController, UITextViewDelegate {
     
-    @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var amountField: UITextField!
-    @IBOutlet weak var reasonField: UITextField!
+    @IBOutlet weak var nameField: UITextView!
+    @IBOutlet weak var amountField: UITextView!
+    @IBOutlet weak var reasonField: UITextView!
     
     var defaultName: String?
     
@@ -22,9 +22,6 @@ class AddNewTransactionController: UIViewController {
         let amount = (amountField.text as NSString).floatValue
         let reason = reasonField.text.capitalizedString
         var error: NSError?
-        
-        println(amountField.text)
-        println(reason)
         
         // See if the person already exists or not. 
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -67,10 +64,12 @@ class AddNewTransactionController: UIViewController {
         if (defaultName != nil) {
             self.nameField.text = defaultName
             titleString += " with " + defaultName!
-            self.nameField.enabled = false
-            self.nameField.borderStyle = UITextBorderStyle.None
+            self.nameField.editable = false
         }
         self.title = titleString
+        
+        self.setupTextViews()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -86,6 +85,49 @@ class AddNewTransactionController: UIViewController {
         // Dispose of any resources that can be recreated.	
     }
     
+    // Text view control stuff
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.textColor == UIColor.lightGrayColor() {
+            textView.text = nil
+            textView.textColor = UIColor.blackColor()
+        }
+    }
     
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            if textView == nameField {
+                textView.text = "Name"
+            }
+            else if textView == amountField {
+                textView.text = "Amount"
+            }
+            else if textView == reasonField {
+                textView.text = "Reason"
+            }
+            textView.textColor = UIColor.lightGrayColor()
+        }
+    }
+    
+    // Other functions
+    func setupTextViews() {
+        // Set delegates for the text views
+        nameField.delegate = self
+        amountField.delegate = self
+        reasonField.delegate = self
+        
+        nameField.text = "Name"
+        nameField.textColor = UIColor.lightGrayColor()
+        amountField.text = "Amount"
+        amountField.textColor = UIColor.lightGrayColor()
+        reasonField.text = "Reason"
+        reasonField.textColor = UIColor.lightGrayColor()
+        
+        nameField.layer.borderColor = ColorStyles.black.CGColor
+        nameField.layer.borderWidth = 1
+        amountField.layer.borderColor = ColorStyles.black.CGColor
+        amountField.layer.borderWidth = 1
+        reasonField.layer.borderColor = ColorStyles.black.CGColor
+        reasonField.layer.borderWidth = 1
+    }
 }
 

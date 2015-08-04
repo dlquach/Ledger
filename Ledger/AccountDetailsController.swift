@@ -63,8 +63,7 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         if (totalDue == 0) {
             self.amountLabel.text = "Nothing"
         }
-        println("HEY")
-        println(self.transactions.count)
+        
         // There's probably a way better way to handle plurality
         if (self.transactions.count == 1) {
             self.numTransactionsLabel.text = NSString(format: "%d Transaction", self.transactions.count)
@@ -118,7 +117,6 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println(self.transactions.count)
         return self.transactions.count
     }
     
@@ -143,7 +141,6 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

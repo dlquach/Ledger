@@ -256,26 +256,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bme-oa-KNg">
-                                <rect key="frame" x="252" y="141" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyo-kh-41m">
-                                <rect key="frame" x="252" y="179" width="97" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="7Jo-Da-5Bp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reason" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSe-SG-7UI">
-                                <rect key="frame" x="252" y="217" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssS-ni-Dhw">
                                 <rect key="frame" x="285" y="263" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FB1-jF-wvv"/>
+                                </constraints>
                                 <state key="normal" title="OK">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -283,25 +268,51 @@
                                     <action selector="acceptButtonPressed:" destination="91O-01-C5v" eventType="touchUpInside" id="aFg-TR-ttD"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="Reason" scrollEnabled="NO" keyboardDismissMode="onDrag" text="Reason" translatesAutoresizingMaskIntoConstraints="NO" id="ybi-fc-3qe">
+                                <rect key="frame" x="16" y="114" width="568" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="onDrag" text="Amount" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="9f4-Qb-BGx">
+                                <rect key="frame" x="459" y="72" width="125" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="vpA-O2-Znb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="decimalPad"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="onDrag" text="Person" translatesAutoresizingMaskIntoConstraints="NO" id="iIm-79-kkL">
+                                <rect key="frame" x="16" y="72" width="204" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="204" id="3zz-Lr-lB7"/>
+                                    <constraint firstAttribute="height" constant="34" id="UWH-5m-9hn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cSe-SG-7UI" firstAttribute="top" secondItem="yyo-kh-41m" secondAttribute="bottom" constant="8" symbolic="YES" id="Avz-Ym-9wa"/>
-                            <constraint firstItem="Bme-oa-KNg" firstAttribute="top" secondItem="T7w-0L-9uk" secondAttribute="bottom" constant="77" id="IWs-3r-KGD"/>
-                            <constraint firstItem="yyo-kh-41m" firstAttribute="top" secondItem="Bme-oa-KNg" secondAttribute="bottom" constant="8" symbolic="YES" id="Ioz-zE-krg"/>
-                            <constraint firstItem="yyo-kh-41m" firstAttribute="centerX" secondItem="ssS-ni-Dhw" secondAttribute="centerX" id="LFH-iL-J7d"/>
-                            <constraint firstItem="ssS-ni-Dhw" firstAttribute="top" secondItem="yyo-kh-41m" secondAttribute="bottom" constant="54" id="XRu-3H-Ebb"/>
-                            <constraint firstItem="Bme-oa-KNg" firstAttribute="centerX" secondItem="CjS-dv-cGK" secondAttribute="centerX" id="Y2a-V0-Ml3"/>
-                            <constraint firstItem="yyo-kh-41m" firstAttribute="leading" secondItem="Bme-oa-KNg" secondAttribute="leading" id="dap-4m-IwP"/>
-                            <constraint firstItem="cSe-SG-7UI" firstAttribute="leading" secondItem="yyo-kh-41m" secondAttribute="leading" id="fww-pX-lQw"/>
-                            <constraint firstItem="cSe-SG-7UI" firstAttribute="trailing" secondItem="yyo-kh-41m" secondAttribute="trailing" id="hXS-Fb-wUq"/>
-                            <constraint firstItem="yyo-kh-41m" firstAttribute="trailing" secondItem="Bme-oa-KNg" secondAttribute="trailing" id="rZ1-uE-p8j"/>
+                            <constraint firstItem="9f4-Qb-BGx" firstAttribute="top" secondItem="iIm-79-kkL" secondAttribute="top" id="2gI-1n-W3w"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="leading" secondItem="CjS-dv-cGK" secondAttribute="leadingMargin" id="7g3-zj-jNw"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="centerX" secondItem="ssS-ni-Dhw" secondAttribute="centerX" id="Eia-JC-bBf"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="top" secondItem="9f4-Qb-BGx" secondAttribute="bottom" constant="8" symbolic="YES" id="IKz-7w-RMr"/>
+                            <constraint firstItem="iIm-79-kkL" firstAttribute="top" secondItem="T7w-0L-9uk" secondAttribute="bottom" constant="8" symbolic="YES" id="KiQ-9u-Zcs"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="trailing" secondItem="9f4-Qb-BGx" secondAttribute="trailing" id="OD4-Ws-y4N"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="top" secondItem="iIm-79-kkL" secondAttribute="bottom" constant="8" symbolic="YES" id="UAy-95-Hs7"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="trailing" secondItem="CjS-dv-cGK" secondAttribute="trailingMargin" id="eDJ-F0-0rn"/>
+                            <constraint firstItem="ybi-fc-3qe" firstAttribute="leading" secondItem="iIm-79-kkL" secondAttribute="leading" id="ekf-9I-eTE"/>
+                            <constraint firstItem="ssS-ni-Dhw" firstAttribute="top" secondItem="ybi-fc-3qe" secondAttribute="bottom" constant="21" id="iPy-fs-66t"/>
+                            <constraint firstItem="NDX-ds-8a7" firstAttribute="top" secondItem="ssS-ni-Dhw" secondAttribute="bottom" constant="307" id="zgY-18-gQd"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="amountField" destination="yyo-kh-41m" id="vre-CU-D0i"/>
-                        <outlet property="nameField" destination="Bme-oa-KNg" id="lsz-KH-v0J"/>
-                        <outlet property="reasonField" destination="cSe-SG-7UI" id="3A5-fW-OV7"/>
+                        <outlet property="amountField" destination="9f4-Qb-BGx" id="Kdo-Ez-Iix"/>
+                        <outlet property="nameField" destination="iIm-79-kkL" id="Y92-Wq-Evf"/>
+                        <outlet property="reasonField" destination="ybi-fc-3qe" id="dYq-PE-TAJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBQ-xW-gPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
