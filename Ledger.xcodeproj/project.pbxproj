@@ -12,6 +12,7 @@
 		ED7BFF511A79CCE700B95295 /* AddNewTransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BFF501A79CCE700B95295 /* AddNewTransactionController.swift */; };
 		ED9DF43C1B6BFBC70088FB4A /* ColorStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9DF43B1B6BFBC70088FB4A /* ColorStyles.swift */; };
 		ED9DF43E1B6C1ACD0088FB4A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED9DF43D1B6C1ACD0088FB4A /* Info.plist */; };
+		ED9DF4401B705F210088FB4A /* Bariol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED9DF43F1B705F210088FB4A /* Bariol.ttf */; };
 		EDC7E27B1B6AE5CE0062E703 /* Ledger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDC7E2791B6AE5CE0062E703 /* Ledger.xcdatamodeld */; };
 		EDC7E2801B6B2A4F0062E703 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC7E27F1B6B2A4F0062E703 /* AccountCell.swift */; };
 		EDE25C6F1A72FA8600DE36DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C6E1A72FA8600DE36DC /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 		ED7BFF501A79CCE700B95295 /* AddNewTransactionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewTransactionController.swift; sourceTree = "<group>"; };
 		ED9DF43B1B6BFBC70088FB4A /* ColorStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStyles.swift; sourceTree = "<group>"; };
 		ED9DF43D1B6C1ACD0088FB4A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED9DF43F1B705F210088FB4A /* Bariol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol.ttf; sourceTree = "<group>"; };
 		EDC7E27A1B6AE5CE0062E703 /* Ledger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ledger.xcdatamodel; sourceTree = "<group>"; };
 		EDC7E27F1B6B2A4F0062E703 /* AccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		EDE25C691A72FA8600DE36DC /* Ledger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ledger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,7 @@
 		EDE25C6C1A72FA8600DE36DC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ED9DF43F1B705F210088FB4A /* Bariol.ttf */,
 				EDE25C6D1A72FA8600DE36DC /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -225,6 +228,7 @@
 			files = (
 				ED9DF43E1B6C1ACD0088FB4A /* Info.plist in Resources */,
 				EDE25C741A72FA8600DE36DC /* Main.storyboard in Resources */,
+				ED9DF4401B705F210088FB4A /* Bariol.ttf in Resources */,
 				EDE25C791A72FA8600DE36DC /* LaunchScreen.xib in Resources */,
 				EDE25C761A72FA8600DE36DC /* Images.xcassets in Resources */,
 			);

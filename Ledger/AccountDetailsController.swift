@@ -31,6 +31,8 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.allowsMultipleSelectionDuringEditing = false
+        
         self.name = account.valueForKey("name") as NSString
         self.nameLabel.text = name
         
@@ -38,10 +40,55 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        // TODO: pull this into its own method since its being copied so much
+        // Setup the header view
+        self.updateHeaderView()
+        
+        // Create add button
+        let addButton: UIBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action: "createNewTransactionWithName")
+        self.navigationItem.rightBarButtonItem = addButton
+        
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+    }
+    
+    func updateHeaderView() {
+        self.totalDue = self.grabTransactionsAndComputeBalance()
+        
+        self.amountLabel.text = "$ " + NSString(format: "%.2f", totalDue)
+        if (totalDue == 0) {
+            self.amountLabel.text = "Nothing"
+        }
+        println("HEY")
+        println(self.transactions.count)
+        // There's probably a way better way to handle plurality
+        if (self.transactions.count == 1) {
+            self.numTransactionsLabel.text = NSString(format: "%d Transaction", self.transactions.count)
+        }
+        else {
+            self.numTransactionsLabel.text = NSString(format: "%d Transactions", self.transactions.count)
+        }
+        
+        // Change the header view color based on whether or not this account is in the red or black
+        if self.totalDue >= 0 {
+            headerView.backgroundColor = ColorStyles.teal
+            self.navigationController?.navigationBar.barTintColor = ColorStyles.teal
+        }
+        else {
+            headerView.backgroundColor = ColorStyles.red
+            self.navigationController?.navigationBar.barTintColor = ColorStyles.red
+        }
+        self.navigationController?.navigationBar.tintColor = ColorStyles.white
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+    }
+    
+    func grabTransactionsAndComputeBalance() -> Float {
+        // Wipe the most likely outdated transactions array
+        self.transactions = [(NSString, Float)]()
+        var total: Float = 0.0
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext  = appDelegate.managedObjectContext!
-
+        
         let fetchRequest = NSFetchRequest(entityName: "Transactions")
         let predicate = NSPredicate(format: "name == %@", name)
         fetchRequest.predicate = predicate
@@ -54,39 +101,10 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
                 let reason: NSString = entity.valueForKey("reason") as NSString
                 let amount: Float = entity.valueForKey("amount") as Float
                 transactions.append((reason, amount))
-                totalDue += amount
+                total += amount
             }
         }
-        
-        self.amountLabel.text = "$ " + NSString(format: "%.2f", totalDue)
-        
-        // There's probably a way better way to handle plurality
-        if (self.transactions.count > 1) {
-            self.numTransactionsLabel.text = NSString(format: "%d Transactions", self.transactions.count)
-        }
-        else {
-            self.numTransactionsLabel.text = NSString(format: "%d Transaction", self.transactions.count)
-        }
-        
-        // Change the header view color based on whether or not this account is in the red or black
-        if self.totalDue >= 0 {
-            headerView.backgroundColor = ColorStyles.green
-            self.navigationController?.navigationBar.barTintColor = ColorStyles.green
-        }
-        else {
-            headerView.backgroundColor = ColorStyles.red
-            self.navigationController?.navigationBar.barTintColor = ColorStyles.red
-        }
-        self.navigationController?.navigationBar.tintColor = ColorStyles.white
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-        
-        // Create add button
-        let addButton: UIBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action: "createNewTransactionWithName")
-        self.navigationItem.rightBarButtonItem = addButton
-        
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
+        return total
     }
     
     override func didReceiveMemoryWarning() {
@@ -100,7 +118,7 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("transactionCell") as UITableViewCell
         let transaction = self.transactions[indexPath.row]
         
         cell.textLabel?.text = transaction.0 + " : " + NSString(format: "%.2f", transaction.1)
@@ -110,6 +128,33 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            let managedContext  = appDelegate.managedObjectContext!
+            
+            // Delete all the transcations associated with this person
+            let fetchRequest = NSFetchRequest(entityName: "Transactions")
+            let predicate = NSPredicate(format: "name == %@", name)
+            fetchRequest.predicate = predicate
+            var error: NSError?
+            
+            let entities = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]!
+            
+            
+            managedContext.deleteObject(entities[indexPath.row])
+            
+            if !managedContext.save(&error) {
+                println("Could not save the delete!")
+            }
+            self.transactions.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.reloadData()
+            self.updateHeaderView()
+        }
+        
     }
     
 }

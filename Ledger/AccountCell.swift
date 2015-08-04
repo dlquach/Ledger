@@ -12,6 +12,7 @@ import UIKit
 class AccountCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var transactionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

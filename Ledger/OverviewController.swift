@@ -25,8 +25,8 @@ class OverviewController: UIViewController, UITableViewDataSource {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.barTintColor = ColorStyles.white
-        self.navigationController?.navigationBar.tintColor = ColorStyles.blue
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName :ColorStyles.blue]
+        self.navigationController?.navigationBar.tintColor = ColorStyles.black
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName :ColorStyles.black]
       
         // Re-enable the status bar
         UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Fade)
@@ -98,13 +98,14 @@ class OverviewController: UIViewController, UITableViewDataSource {
             }
             
             cell.nameLabel.text = name
-            cell.amountLabel.text = (NSString(format: "%.2f", amount))
+            cell.amountLabel.text = (NSString(format: "$%.2f", amount))
+            cell.transactionLabel.text = (NSString(format: "%d Transactions", entities.count))
             
             if amount >= 0 {
-                cell.backgroundColor = UIColor(red: 53/255, green: 139/255, blue: 101/255, alpha: 1)
+                cell.amountLabel.textColor = ColorStyles.teal
             }
             else {
-                cell.backgroundColor = UIColor(red: 167/255, green: 47/255, blue: 59/255, alpha: 1)
+                cell.amountLabel.textColor = ColorStyles.red
             }
             return cell
     }
