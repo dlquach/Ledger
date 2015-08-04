@@ -32,6 +32,7 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.allowsMultipleSelectionDuringEditing = false
+        self.navigationController?.hideShadow = true
         
         self.name = account.valueForKey("name") as NSString
         self.nameLabel.text = name
@@ -48,6 +49,11 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         self.navigationItem.rightBarButtonItem = addButton
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateHeaderView()
     }
     
     func updateHeaderView() {

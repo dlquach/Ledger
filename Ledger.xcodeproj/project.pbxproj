@@ -21,6 +21,7 @@
 		EDE25C761A72FA8600DE36DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE25C751A72FA8600DE36DC /* Images.xcassets */; };
 		EDE25C791A72FA8600DE36DC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE25C771A72FA8600DE36DC /* LaunchScreen.xib */; };
 		EDE25C851A72FA8600DE36DC /* LedgerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C841A72FA8600DE36DC /* LedgerTests.swift */; };
+		EDF55AD41B70688300D3D2ED /* UIBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF55AD31B70688300D3D2ED /* UIBarExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		EDE25C7E1A72FA8600DE36DC /* LedgerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LedgerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE25C831A72FA8600DE36DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDE25C841A72FA8600DE36DC /* LedgerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerTests.swift; sourceTree = "<group>"; };
+		EDF55AD31B70688300D3D2ED /* UIBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				ED7BFF501A79CCE700B95295 /* AddNewTransactionController.swift */,
 				ED1727201B6ACBC200E6DAB1 /* AccountDetailsController.swift */,
 				ED9DF43B1B6BFBC70088FB4A /* ColorStyles.swift */,
+				EDF55AD31B70688300D3D2ED /* UIBarExtension.swift */,
 			);
 			path = Ledger;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				ED1727211B6ACBC200E6DAB1 /* AccountDetailsController.swift in Sources */,
 				ED7BFF511A79CCE700B95295 /* AddNewTransactionController.swift in Sources */,
 				EDC7E2801B6B2A4F0062E703 /* AccountCell.swift in Sources */,
+				EDF55AD41B70688300D3D2ED /* UIBarExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

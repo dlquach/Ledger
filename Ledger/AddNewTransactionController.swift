@@ -55,7 +55,7 @@ class AddNewTransactionController: UIViewController {
             println("Could not save, \(error), \(error?.userInfo)")
         }
         
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func viewDidLoad() {
@@ -71,6 +71,13 @@ class AddNewTransactionController: UIViewController {
             self.nameField.borderStyle = UITextBorderStyle.None
         }
         self.title = titleString
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.barTintColor = ColorStyles.white
+        self.navigationController?.navigationBar.tintColor = ColorStyles.black
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName :ColorStyles.black]
+        self.navigationController?.hideShadow = false
     }
     
     

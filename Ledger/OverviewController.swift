@@ -27,6 +27,7 @@ class OverviewController: UIViewController, UITableViewDataSource {
         self.navigationController?.navigationBar.barTintColor = ColorStyles.white
         self.navigationController?.navigationBar.tintColor = ColorStyles.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName :ColorStyles.black]
+        self.navigationController?.hideShadow = false
       
         // Re-enable the status bar
         UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Fade)
