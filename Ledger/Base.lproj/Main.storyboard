@@ -15,7 +15,6 @@
             <string>Bariol-Regular</string>
             <string>Bariol-Regular</string>
             <string>Bariol-Regular</string>
-            <string>Bariol-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -121,56 +120,45 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOe-pN-kSA">
                                 <rect key="frame" x="0.0" y="-5" width="600" height="140"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dP-Ef-qQy">
-                                        <rect key="frame" x="138" y="8" width="325" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="325" id="2VL-HW-I1I"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="23"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="owes you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hu-oe-kx5">
-                                        <rect key="frame" x="234" y="41" width="132" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="132" id="Fyg-Wj-0Yj"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="15"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRANSACTIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUV-x6-QwY">
                                         <rect key="frame" x="165" y="111" width="270" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="270" id="m6N-Wo-EVZ"/>
+                                            <constraint firstAttribute="width" constant="270" id="kBX-nv-m7a"/>
+                                            <constraint firstAttribute="height" constant="21" id="r72-fZ-QDJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AMOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkN-o7-mrx">
-                                        <rect key="frame" x="8" y="70" width="584" height="35"/>
+                                        <rect key="frame" x="8" y="68" width="584" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="584" id="isU-Va-Pr4"/>
+                                            <constraint firstAttribute="height" constant="35" id="NaP-A4-LD3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="28"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dP-Ef-qQy">
+                                        <rect key="frame" x="138" y="24" width="325" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="325" id="Z3n-Ht-Lew"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="23"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="bkN-o7-mrx" secondAttribute="bottom" constant="35" id="NBD-vC-HgQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="3Hu-oe-kx5" secondAttribute="bottom" constant="78" id="P88-xQ-dY3"/>
-                                    <constraint firstItem="7dP-Ef-qQy" firstAttribute="centerX" secondItem="VOe-pN-kSA" secondAttribute="centerX" id="SAA-Cf-8lv"/>
-                                    <constraint firstItem="bkN-o7-mrx" firstAttribute="top" secondItem="7dP-Ef-qQy" secondAttribute="bottom" constant="18" id="f3k-ZY-GHv"/>
-                                    <constraint firstItem="ZUV-x6-QwY" firstAttribute="bottom" secondItem="VOe-pN-kSA" secondAttribute="bottomMargin" id="ibw-L1-aW5"/>
-                                    <constraint firstItem="7dP-Ef-qQy" firstAttribute="centerX" secondItem="3Hu-oe-kx5" secondAttribute="centerX" id="jdK-Nd-bTG"/>
-                                    <constraint firstItem="7dP-Ef-qQy" firstAttribute="top" secondItem="VOe-pN-kSA" secondAttribute="topMargin" id="lDN-DX-Uuw"/>
-                                    <constraint firstItem="7dP-Ef-qQy" firstAttribute="centerX" secondItem="ZUV-x6-QwY" secondAttribute="centerX" id="pel-i1-L29"/>
-                                    <constraint firstItem="bkN-o7-mrx" firstAttribute="centerX" secondItem="3Hu-oe-kx5" secondAttribute="centerX" id="vh3-V7-flF"/>
-                                    <constraint firstItem="ZUV-x6-QwY" firstAttribute="top" secondItem="bkN-o7-mrx" secondAttribute="bottom" constant="6" id="y16-PF-yrj"/>
-                                    <constraint firstItem="bkN-o7-mrx" firstAttribute="top" secondItem="3Hu-oe-kx5" secondAttribute="bottom" constant="8" id="yhW-7y-MoA"/>
+                                    <constraint firstItem="bkN-o7-mrx" firstAttribute="centerX" secondItem="7dP-Ef-qQy" secondAttribute="centerX" id="1Jb-ph-X9G"/>
+                                    <constraint firstItem="bkN-o7-mrx" firstAttribute="leading" secondItem="VOe-pN-kSA" secondAttribute="leadingMargin" id="7eZ-RH-xOK"/>
+                                    <constraint firstItem="bkN-o7-mrx" firstAttribute="top" secondItem="7dP-Ef-qQy" secondAttribute="bottom" id="Amj-5f-hee"/>
+                                    <constraint firstItem="ZUV-x6-QwY" firstAttribute="top" secondItem="bkN-o7-mrx" secondAttribute="bottom" constant="8" id="BLI-1s-Fl4"/>
+                                    <constraint firstItem="bkN-o7-mrx" firstAttribute="centerX" secondItem="ZUV-x6-QwY" secondAttribute="centerX" id="fve-xn-akt"/>
+                                    <constraint firstItem="ZUV-x6-QwY" firstAttribute="bottom" secondItem="VOe-pN-kSA" secondAttribute="bottomMargin" id="iP6-iD-nzn"/>
+                                    <constraint firstItem="bkN-o7-mrx" firstAttribute="trailing" secondItem="VOe-pN-kSA" secondAttribute="trailingMargin" id="sYT-P2-JWe"/>
+                                    <constraint firstItem="7dP-Ef-qQy" firstAttribute="top" secondItem="VOe-pN-kSA" secondAttribute="topMargin" constant="16" id="zhu-Qp-OL7"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fZb-B1-WfP">
@@ -195,8 +183,11 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oj-T3-Nsb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oj-T3-Nsb">
                                                     <rect key="frame" x="442" y="11" width="150" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="9DU-NH-zyS"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>

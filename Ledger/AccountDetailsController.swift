@@ -59,7 +59,7 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     func updateHeaderView() {
         self.totalDue = self.grabTransactionsAndComputeBalance()
         
-        self.amountLabel.text = "$ " + NSString(format: "%.2f", totalDue)
+        self.amountLabel.text = "$ " + NSString(format: "%.2f", abs(totalDue))
         if (totalDue == 0) {
             self.amountLabel.text = "Nothing"
         }
@@ -128,7 +128,7 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         let amount = transaction.1
         
         cell.reasonLabel.text = transaction.0
-        cell.amountLabel.text = NSString(format: "$%.2f", amount)
+        cell.amountLabel.text = NSString(format: "$%.2f", abs(amount))
         
         if amount >= 0 {
             cell.amountLabel.textColor = ColorStyles.teal
