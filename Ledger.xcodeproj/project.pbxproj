@@ -21,6 +21,7 @@
 		EDE25C761A72FA8600DE36DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE25C751A72FA8600DE36DC /* Images.xcassets */; };
 		EDE25C791A72FA8600DE36DC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE25C771A72FA8600DE36DC /* LaunchScreen.xib */; };
 		EDE25C851A72FA8600DE36DC /* LedgerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C841A72FA8600DE36DC /* LedgerTests.swift */; };
+		EDED9AE51B71EE4400C7D90E /* Ledger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDED9AE41B71EE4400C7D90E /* Ledger@2x.png */; };
 		EDF55AD41B70688300D3D2ED /* UIBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF55AD31B70688300D3D2ED /* UIBarExtension.swift */; };
 		EDF55AD61B706DC300D3D2ED /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF55AD51B706DC300D3D2ED /* TransactionCell.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		EDE25C7E1A72FA8600DE36DC /* LedgerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LedgerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE25C831A72FA8600DE36DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDE25C841A72FA8600DE36DC /* LedgerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerTests.swift; sourceTree = "<group>"; };
+		EDED9AE41B71EE4400C7D90E /* Ledger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ledger@2x.png"; sourceTree = "<group>"; };
 		EDF55AD31B70688300D3D2ED /* UIBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarExtension.swift; sourceTree = "<group>"; };
 		EDF55AD51B706DC300D3D2ED /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 				EDE25C6E1A72FA8600DE36DC /* AppDelegate.swift */,
 				EDE25C701A72FA8600DE36DC /* OverviewController.swift */,
 				EDE25C721A72FA8600DE36DC /* Main.storyboard */,
+				EDED9AE41B71EE4400C7D90E /* Ledger@2x.png */,
 				EDE25C751A72FA8600DE36DC /* Images.xcassets */,
 				EDE25C771A72FA8600DE36DC /* LaunchScreen.xib */,
 				EDE25C6C1A72FA8600DE36DC /* Supporting Files */,
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED9DF43E1B6C1ACD0088FB4A /* Info.plist in Resources */,
+				EDED9AE51B71EE4400C7D90E /* Ledger@2x.png in Resources */,
 				EDE25C741A72FA8600DE36DC /* Main.storyboard in Resources */,
 				ED9DF4401B705F210088FB4A /* Bariol.ttf in Resources */,
 				EDE25C791A72FA8600DE36DC /* LaunchScreen.xib in Resources */,
