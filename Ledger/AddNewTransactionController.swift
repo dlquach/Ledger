@@ -122,6 +122,12 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         else {
             maxChars = 20
         }
+        
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        
         //If the text is larger than the maxtext, the return is false
         return countElements(textView.text) + (countElements(text) - range.length) <= maxChars
         
@@ -133,6 +139,8 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         nameField.delegate = self
         amountField.delegate = self
         reasonField.delegate = self
+        
+        nameField.textContainer.maximumNumberOfLines = 1;
         
         nameField.text = "Name"
         nameField.textColor = UIColor.lightGrayColor()

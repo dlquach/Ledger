@@ -32,6 +32,7 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.allowsMultipleSelectionDuringEditing = false
+        self.tableView.allowsSelection = false
         self.navigationController?.hideShadow = true
         
         self.name = account.valueForKey("name") as NSString

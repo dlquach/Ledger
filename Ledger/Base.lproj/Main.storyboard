@@ -51,7 +51,7 @@
                                             <color key="textColor" red="0.30806107954545459" green="0.27727948083332038" blue="0.25053027197739725" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CjE-Tf-A5k">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CjE-Tf-A5k">
                                             <rect key="frame" x="438" y="29" width="136" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="136" id="NDb-Qq-BCp"/>
@@ -270,7 +270,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="tCP-yK-JAM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="bWa-pw-FmP"/>
@@ -286,7 +286,7 @@
                                     <constraint firstAttribute="width" constant="125" id="foq-3q-bcg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="decimalPad"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="Reason" scrollEnabled="NO" keyboardDismissMode="onDrag" text="Reason" translatesAutoresizingMaskIntoConstraints="NO" id="ybi-fc-3qe">
                                 <rect key="frame" x="16" y="114" width="568" height="128"/>
