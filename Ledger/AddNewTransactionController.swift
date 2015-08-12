@@ -14,15 +14,24 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var nameField: UITextView!
     @IBOutlet weak var amountField: UITextView!
     @IBOutlet weak var reasonField: UITextView!
-    @IBOutlet weak var acceptButton: UIButton!
+    @IBOutlet weak var chargeButton: UIButton!
+    @IBOutlet weak var toPayButton: UIButton!
     
     var defaultName: String?
     
     @IBAction func acceptButtonPressed(sender: AnyObject) {
         let name = nameField.text.capitalizedString
-        let amount = (amountField.text as NSString).floatValue
+        var amount = (amountField.text as NSString).floatValue
         let reason = reasonField.text.capitalizedString
         var error: NSError?
+        
+        // Charge or To Pay
+        if sender as NSObject == chargeButton {
+            amount = abs(amount)
+        }
+        else {
+            amount = abs(amount) * -1
+        }
         
         // See if the person already exists or not. 
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -66,7 +75,6 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         // See if this page is for a specific person
         if (defaultName != nil) {
             self.nameField.text = defaultName
-            titleString += " with " + defaultName!
             self.nameField.editable = false
             self.nameField.textColor = UIColor.darkGrayColor()
         }
@@ -81,7 +89,8 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName :ColorStyles.black]
         self.navigationController?.hideShadow = false
         
-        self.acceptButton.backgroundColor = ColorStyles.green
+        self.chargeButton.backgroundColor = ColorStyles.green
+        self.toPayButton.backgroundColor = ColorStyles.red
     }
     
     

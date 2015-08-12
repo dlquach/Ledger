@@ -54,6 +54,7 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.headerView.backgroundColor = ColorStyles.white
         self.updateHeaderView()
     }
     
@@ -61,9 +62,6 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         self.totalDue = self.grabTransactionsAndComputeBalance()
         
         self.amountLabel.text = "$ " + NSString(format: "%.2f", abs(totalDue))
-        if (totalDue == 0) {
-            self.amountLabel.text = "Nothing"
-        }
         
         // There's probably a way better way to handle plurality
         if (self.transactions.count == 1) {
@@ -73,14 +71,19 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
             self.numTransactionsLabel.text = NSString(format: "%d Transactions", self.transactions.count)
         }
         
+        let tab = self.navigationController?.navigationController?.navigationBar
         // Change the header view color based on whether or not this account is in the red or black
         if self.totalDue >= 0 {
-            headerView.backgroundColor = ColorStyles.teal
-            self.navigationController?.navigationBar.barTintColor = ColorStyles.teal
+            UIView.animateWithDuration(0.35, animations: {
+                self.headerView.backgroundColor = ColorStyles.teal
+                self.navigationController?.navigationBar.barTintColor = ColorStyles.teal
+            })
         }
         else {
-            headerView.backgroundColor = ColorStyles.red
-            self.navigationController?.navigationBar.barTintColor = ColorStyles.red
+            UIView.animateWithDuration(0.35, animations: {
+                self.headerView.backgroundColor = ColorStyles.red
+                self.navigationController?.navigationBar.barTintColor = ColorStyles.red
+            })
         }
         self.navigationController?.navigationBar.tintColor = ColorStyles.white
         self.navigationController?.navigationBar.translucent = false
