@@ -95,6 +95,8 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         
         self.chargeButton.backgroundColor = ColorStyles.green
         self.toPayButton.backgroundColor = ColorStyles.red
+        
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
     }
     
     
@@ -172,18 +174,17 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
     
     func validateFieldsAndPopup() -> Bool {
         var alertController: UIAlertController?
-        if nameField.textColor == UIColor.lightGrayColor() {
+        if nameField.textColor == UIColor.lightGrayColor() || nameField.text.isEmpty {
             alertController = UIAlertController(title: "Incomplete Form", message:
                 "Please fill out a name", preferredStyle: UIAlertControllerStyle.Alert)
             alertController!.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
         }
-        else if amountField.textColor == UIColor.lightGrayColor() {
+        else if amountField.textColor == UIColor.lightGrayColor() || amountField.text.isEmpty {
             alertController = UIAlertController(title: "Incomplete Form", message:
                 "Please fill out an amount", preferredStyle: UIAlertControllerStyle.Alert)
             alertController!.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
         }
-        else if reasonField.textColor == UIColor.lightGrayColor() {
-            
+        else if reasonField.textColor == UIColor.lightGrayColor() || reasonField.text.isEmpty {
             alertController = UIAlertController(title: "Incomplete Form", message:
                 "Please fill out a reason", preferredStyle: UIAlertControllerStyle.Alert)
             alertController!.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))

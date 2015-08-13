@@ -48,14 +48,13 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         // Create add button
         let addButton: UIBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.Plain, target: self, action: "createNewTransactionWithName")
         self.navigationItem.rightBarButtonItem = addButton
-        
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.headerView.backgroundColor = ColorStyles.white
         self.updateHeaderView()
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     }
     
     func updateHeaderView() {
