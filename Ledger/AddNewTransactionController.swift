@@ -60,6 +60,7 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         transaction.setValue(name, forKey: "name")
         transaction.setValue(amount, forKey: "amount")
         transaction.setValue(reason, forKey: "reason")
+        transaction.setValue(NSDate(), forKey: "date")
         
         // Save the amounts to CoreData
         if !managedContext.save(&error) {

@@ -19,7 +19,7 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     
     
     var account: NSManagedObject!
-    var transactions = [(NSString, Float)]()
+    var transactions = [(NSString, Float, NSDate)]()
     var name: NSString!
     var totalDue: Float = 0.0
     
@@ -92,7 +92,7 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     
     func grabTransactionsAndComputeBalance() -> Float {
         // Wipe the most likely outdated transactions array
-        self.transactions = [(NSString, Float)]()
+        self.transactions = [(NSString, Float, NSDate)]()
         var total: Float = 0.0
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext  = appDelegate.managedObjectContext!
@@ -108,7 +108,8 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
             for entity in entities {
                 let reason: NSString = entity.valueForKey("reason") as NSString
                 let amount: Float = entity.valueForKey("amount") as Float
-                transactions.append((reason, amount))
+                let date: NSDate = entity.valueForKey("date") as NSDate
+                transactions.append((reason, amount, date))
                 total += amount
             }
         }
@@ -130,8 +131,12 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         
         let amount = transaction.1
         
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        
         cell.reasonLabel.text = transaction.0
         cell.amountLabel.text = NSString(format: "$%.2f", abs(amount))
+        cell.dateLabel.text = dateFormatter.stringFromDate(transaction.2)
         
         if amount >= 0 {
             cell.amountLabel.textColor = ColorStyles.teal
