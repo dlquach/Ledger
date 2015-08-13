@@ -20,6 +20,10 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
     var defaultName: String?
     
     @IBAction func acceptButtonPressed(sender: AnyObject) {
+        if validateFieldsAndPopup() {
+            return
+        }
+        
         let name = nameField.text.capitalizedString
         var amount = (amountField.text as NSString).floatValue
         let reason = reasonField.text.capitalizedString
@@ -164,6 +168,31 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         amountField.layer.borderWidth = 1
         reasonField.layer.borderColor = ColorStyles.black.CGColor
         reasonField.layer.borderWidth = 1
+    }
+    
+    func validateFieldsAndPopup() -> Bool {
+        var alertController: UIAlertController?
+        if nameField.textColor == UIColor.lightGrayColor() {
+            alertController = UIAlertController(title: "Incomplete Form", message:
+                "Please fill out a name", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController!.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+        }
+        else if amountField.textColor == UIColor.lightGrayColor() {
+            alertController = UIAlertController(title: "Incomplete Form", message:
+                "Please fill out an amount", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController!.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+        }
+        else if reasonField.textColor == UIColor.lightGrayColor() {
+            
+            alertController = UIAlertController(title: "Incomplete Form", message:
+                "Please fill out a reason", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController!.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+        }
+        if alertController != nil {
+            self.presentViewController(alertController!, animated: true, completion: nil)
+            return true
+        }
+        return false
     }
 }
 
