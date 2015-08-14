@@ -64,7 +64,7 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         numberFormatter.maximumFractionDigits = 2
         numberFormatter.minimumFractionDigits = 2
-        self.amountLabel.text = "$ " + numberFormatter.stringFromNumber(totalDue)!
+        self.amountLabel.text = "$ " + numberFormatter.stringFromNumber(abs(totalDue))!
         
         // There's probably a way better way to handle plurality
         if (self.transactions.count == 1) {
