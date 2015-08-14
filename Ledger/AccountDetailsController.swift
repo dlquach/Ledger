@@ -60,7 +60,11 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     func updateHeaderView() {
         self.totalDue = self.grabTransactionsAndComputeBalance()
         
-        self.amountLabel.text = "$ " + NSString(format: "%.2f", abs(totalDue))
+        var numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.minimumFractionDigits = 2
+        self.amountLabel.text = "$ " + numberFormatter.stringFromNumber(totalDue)!
         
         // There's probably a way better way to handle plurality
         if (self.transactions.count == 1) {

@@ -25,7 +25,7 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         }
         
         let name = nameField.text.capitalizedString
-        var amount = (amountField.text as NSString).floatValue
+        var amount = (amountField.text.stringByReplacingOccurrencesOfString("$", withString: "") as NSString).floatValue
         let reason = reasonField.text.capitalizedString
         var error: NSError?
         
@@ -112,20 +112,20 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
             textView.text = nil
             textView.textColor = UIColor.blackColor()
         }
+        if textView == amountField {
+            textView.text = textView.text.stringByReplacingOccurrencesOfString("$", withString: "")
+        }
     }
     
     func textViewDidEndEditing(textView: UITextView) {
-        if textView.text.isEmpty {
-            if textView == nameField {
-                textView.text = "Name"
-            }
-            else if textView == amountField {
-                textView.text = "Amount"
-            }
-            else if textView == reasonField {
-                textView.text = "Reason"
-            }
-            textView.textColor = UIColor.lightGrayColor()
+        if textView == nameField {
+            formatNameField(textView)
+        }
+        else if textView == amountField {
+            formatAmountField(textView)
+        }
+        else if textView == reasonField {
+            formatReasonField(textView)
         }
     }
     
@@ -195,6 +195,40 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
             return true
         }
         return false
+    }
+    
+    func formatNameField(textView: UITextView) {
+        if textView == nameField {
+            if textView.text.isEmpty {
+                textView.text = "Name"
+                textView.textColor = UIColor.lightGrayColor()
+            }
+            else {
+                textView.text = textView.text.capitalizedString
+            }
+        }
+    }
+    
+    func formatAmountField(textView: UITextView) {
+        if textView == amountField {
+            if textView.text.isEmpty {
+                textView.text = "Amount"
+                textView.textColor = UIColor.lightGrayColor()
+            }
+            else {
+                let amount = (textView.text.stringByReplacingOccurrencesOfString("$", withString: "") as NSString).floatValue
+                textView.text = "$" + NSString(format: "%.2f", abs(amount))
+            }
+        }
+    }
+    
+    func formatReasonField(textView: UITextView) {
+        if textView == reasonField {
+            if textView.text.isEmpty {
+                textView.text = "Reason"
+                textView.textColor = UIColor.lightGrayColor()
+            }
+        }
     }
 }
 
