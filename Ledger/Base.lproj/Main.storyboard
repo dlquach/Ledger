@@ -357,6 +357,7 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ssS-ni-Dhw" firstAttribute="top" secondItem="nAB-B6-uKQ" secondAttribute="top" id="3Ca-7l-mPa"/>
                             <constraint firstItem="nAB-B6-uKQ" firstAttribute="trailing" secondItem="ybi-fc-3qe" secondAttribute="trailing" id="IFj-GF-Sph"/>
@@ -388,6 +389,9 @@
                                 <exclude reference="bfG-w0-pDr"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="a9N-7y-LsZ" appends="YES" id="ahJ-6R-csf"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="amountField" destination="9f4-Qb-BGx" id="Kdo-Ez-Iix"/>
@@ -399,6 +403,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBQ-xW-gPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="a9N-7y-LsZ">
+                    <connections>
+                        <action selector="dismissGesture:" destination="91O-01-C5v" id="ElM-4o-lfr"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1897" y="486"/>
         </scene>

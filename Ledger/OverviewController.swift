@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class OverviewController: UIViewController, UITableViewDataSource {
+class OverviewController: UIViewController, UITableViewDataSource, UIViewControllerTransitioningDelegate {
 
     var people = [NSManagedObject]()
     
@@ -163,6 +163,19 @@ class OverviewController: UIViewController, UITableViewDataSource {
 
     }
     
-  
+    let interactor = Interactor()
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destinationViewController = segue.destinationViewController as? AddNewTransactionController {
+            destinationViewController.transitioningDelegate = self
+            destinationViewController.interactor = interactor
+        }
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimator()
+    }
+    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
+    }
 }
 

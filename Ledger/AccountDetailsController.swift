@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class AccountDetailsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AccountDetailsController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
@@ -27,6 +27,8 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         
         let vc = storyboard?.instantiateViewControllerWithIdentifier("NewTransaction") as! AddNewTransactionController
         vc.defaultName = name as String
+        vc.transitioningDelegate = self
+        vc.interactor = interactor
         self.navigationController?.presentViewController(vc, animated: true, completion: nil)
 
     }
@@ -192,5 +194,16 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         }
         
     }
+    
+    
+    let interactor = Interactor()
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimator()
+    }
+    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
+    }
+
     
 }

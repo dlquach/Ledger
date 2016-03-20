@@ -11,6 +11,8 @@ import CoreData
 
 class AddNewTransactionController: UIViewController, UITextViewDelegate, UIBarPositioningDelegate {
     
+    var defaultName: String?
+    
     @IBOutlet weak var nameField: UITextView!
     @IBOutlet weak var amountField: UITextView!
     @IBOutlet weak var reasonField: UITextView!
@@ -18,7 +20,38 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate, UIBarPo
     @IBOutlet weak var toPayButton: UIButton!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
-    var defaultName: String?
+    var interactor:Interactor? = nil
+    
+    @IBAction func dismissGesture(sender: UIPanGestureRecognizer) {
+        let percentThreshold:CGFloat = 0.3
+        
+        // convert y-position to downward pull progress (percentage)
+        let translation = sender.translationInView(view)
+        let verticalMovement = translation.y / view.bounds.height
+        let downwardMovement = fmaxf(Float(verticalMovement), 0.0)
+        let downwardMovementPercent = fminf(downwardMovement, 1.0)
+        let progress = CGFloat(downwardMovementPercent)
+        guard let interactor = interactor else { return }
+        
+        switch sender.state {
+        case .Began:
+            interactor.hasStarted = true
+            dismissViewControllerAnimated(true, completion: nil)
+        case .Changed:
+            interactor.shouldFinish = progress > percentThreshold
+            interactor.updateInteractiveTransition(progress)
+        case .Cancelled:
+            interactor.hasStarted = false
+            interactor.cancelInteractiveTransition()
+        case .Ended:
+            interactor.hasStarted = false
+            interactor.shouldFinish
+                ? interactor.finishInteractiveTransition()
+                : interactor.cancelInteractiveTransition()
+        default:
+            break
+        }
+    }
     
     @IBAction func cancelButton(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)

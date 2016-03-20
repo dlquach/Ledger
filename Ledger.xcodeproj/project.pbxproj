@@ -13,6 +13,8 @@
 		ED9DF43C1B6BFBC70088FB4A /* ColorStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9DF43B1B6BFBC70088FB4A /* ColorStyles.swift */; };
 		ED9DF43E1B6C1ACD0088FB4A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED9DF43D1B6C1ACD0088FB4A /* Info.plist */; };
 		ED9DF4401B705F210088FB4A /* Bariol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED9DF43F1B705F210088FB4A /* Bariol.ttf */; };
+		EDBB835A1C9E8832008F5441 /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB83591C9E8832008F5441 /* DismissAnimator.swift */; };
+		EDBB835C1C9E8867008F5441 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB835B1C9E8867008F5441 /* Interactor.swift */; };
 		EDC7E27B1B6AE5CE0062E703 /* Ledger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDC7E2791B6AE5CE0062E703 /* Ledger.xcdatamodeld */; };
 		EDC7E2801B6B2A4F0062E703 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC7E27F1B6B2A4F0062E703 /* AccountCell.swift */; };
 		EDE25C6F1A72FA8600DE36DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE25C6E1A72FA8600DE36DC /* AppDelegate.swift */; };
@@ -43,6 +45,8 @@
 		ED9DF43B1B6BFBC70088FB4A /* ColorStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStyles.swift; sourceTree = "<group>"; };
 		ED9DF43D1B6C1ACD0088FB4A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED9DF43F1B705F210088FB4A /* Bariol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol.ttf; sourceTree = "<group>"; };
+		EDBB83591C9E8832008F5441 /* DismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
+		EDBB835B1C9E8867008F5441 /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		EDC7E27A1B6AE5CE0062E703 /* Ledger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ledger.xcdatamodel; sourceTree = "<group>"; };
 		EDC7E27F1B6B2A4F0062E703 /* AccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		EDE25C691A72FA8600DE36DC /* Ledger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ledger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +90,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		EDBB83581C9E8823008F5441 /* AnimatedDismiss */ = {
+			isa = PBXGroup;
+			children = (
+				EDBB83591C9E8832008F5441 /* DismissAnimator.swift */,
+				EDBB835B1C9E8867008F5441 /* Interactor.swift */,
+			);
+			name = AnimatedDismiss;
+			sourceTree = "<group>";
+		};
 		EDC7E27E1B6B2A360062E703 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +131,7 @@
 		EDE25C6B1A72FA8600DE36DC /* Ledger */ = {
 			isa = PBXGroup;
 			children = (
+				EDBB83581C9E8823008F5441 /* AnimatedDismiss */,
 				ED0421D61B962E23006AF324 /* Views */,
 				ED9DF43D1B6C1ACD0088FB4A /* Info.plist */,
 				EDED9AE81B7E901E00C7D90E /* Tables */,
@@ -294,7 +308,9 @@
 			files = (
 				EDC7E27B1B6AE5CE0062E703 /* Ledger.xcdatamodeld in Sources */,
 				EDE25C711A72FA8600DE36DC /* OverviewController.swift in Sources */,
+				EDBB835C1C9E8867008F5441 /* Interactor.swift in Sources */,
 				ED9DF43C1B6BFBC70088FB4A /* ColorStyles.swift in Sources */,
+				EDBB835A1C9E8832008F5441 /* DismissAnimator.swift in Sources */,
 				EDE25C6F1A72FA8600DE36DC /* AppDelegate.swift in Sources */,
 				ED1727211B6ACBC200E6DAB1 /* AccountDetailsController.swift in Sources */,
 				EDF55AD61B706DC300D3D2ED /* TransactionCell.swift in Sources */,
