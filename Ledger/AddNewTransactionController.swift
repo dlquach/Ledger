@@ -9,15 +9,20 @@
 import UIKit
 import CoreData
 
-class AddNewTransactionController: UIViewController, UITextViewDelegate {
+class AddNewTransactionController: UIViewController, UITextViewDelegate, UIBarPositioningDelegate {
     
     @IBOutlet weak var nameField: UITextView!
     @IBOutlet weak var amountField: UITextView!
     @IBOutlet weak var reasonField: UITextView!
     @IBOutlet weak var chargeButton: UIButton!
     @IBOutlet weak var toPayButton: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     var defaultName: String?
+    
+    @IBAction func cancelButton(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func acceptButtonPressed(sender: AnyObject) {
         if validateFieldsAndPopup() {
@@ -27,10 +32,9 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         let name = nameField.text.capitalizedString
         var amount = (amountField.text.stringByReplacingOccurrencesOfString("$", withString: "") as NSString).floatValue
         let reason = reasonField.text.capitalizedString
-        var error: NSError?
         
         // Charge or To Pay
-        if sender as NSObject == chargeButton {
+        if sender as! NSObject == chargeButton {
             amount = abs(amount)
         }
         else {
@@ -38,42 +42,56 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         }
         
         // See if the person already exists or not. 
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let managedContext = appDelegate.managedObjectContext! // The '!' means you are assuring mangagedObjectContext is not nil
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext // The '!' means you are assuring mangagedObjectContext is not nil
 
         let fetchRequest = NSFetchRequest(entityName: "Person")
         let predicate = NSPredicate(format: "name == %@", name)
         fetchRequest.predicate = predicate
-        let people = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]!
-        
-        // This person doesn't exist in CoreData, create an entry for them.
-        if people.count == 0 {
-            let entity = NSEntityDescription.entityForName("Person", inManagedObjectContext: managedContext)
-            let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-            person.setValue(name, forKey: "name")
+        do {
+            let fetchResults =
+                try managedContext.executeFetchRequest(fetchRequest)
+            let people = fetchResults as! [NSManagedObject]
+            
+            // This person doesn't exist in CoreData, create an entry for them.
+            if people.count == 0 {
+                let entity = NSEntityDescription.entityForName("Person", inManagedObjectContext: managedContext)
+                let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+                person.setValue(name, forKey: "name")
+            }
+            
+            // Create a new transactions entity to store
+            let entity = NSEntityDescription.entityForName("Transactions", inManagedObjectContext: managedContext)
+            
+            let transaction = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+            transaction.setValue(name, forKey: "name")
+            transaction.setValue(amount, forKey: "amount")
+            transaction.setValue(reason, forKey: "reason")
+            transaction.setValue(NSDate(), forKey: "date")
+            
+            // Save the amounts to CoreData
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Could not fetch \(error), \(error.userInfo)")
+                
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+            
         }
         
-        // Create a new transactions entity to store
-        let entity = NSEntityDescription.entityForName("Transactions", inManagedObjectContext: managedContext)
-        
-        let transaction = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        transaction.setValue(name, forKey: "name")
-        transaction.setValue(amount, forKey: "amount")
-        transaction.setValue(reason, forKey: "reason")
-        transaction.setValue(NSDate(), forKey: "date")
-        
-        // Save the amounts to CoreData
-        if !managedContext.save(&error) {
-            println("Could not save, \(error), \(error?.userInfo)")
-        }
-        
-        self.navigationController?.popViewControllerAnimated(true)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
+        return UIBarPosition.TopAttached
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        var titleString = "New Transcation"
+        let titleString = "New Transcation"
         
         self.setupTextViews()
         
@@ -85,6 +103,8 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         }
         
         self.title = titleString
+        
+        
         
     }
     
@@ -145,11 +165,21 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         }
         
         //If the text is larger than the maxtext, the return is false
-        return countElements(textView.text) + (countElements(text) - range.length) <= maxChars
+        return textView.text.characters.count + (text.characters.count - range.length) <= maxChars
         
     }
     
     // Other functions
+    func generateTextBorder(textView: UITextView) -> CALayer {
+        let border = CALayer()
+        let width = CGFloat(1.0)
+        border.borderColor = UIColor.lightGrayColor().CGColor
+        border.frame = CGRect(x: 0, y: textView.frame.size.height - width, width: textView.frame.size.width, height: textView.frame.size.height)
+        border.borderWidth = width
+        
+        return border
+    }
+    
     func setupTextViews() {
         // Set delegates for the text views
         nameField.delegate = self
@@ -165,11 +195,19 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
         reasonField.text = "Reason"
         reasonField.textColor = UIColor.lightGrayColor()
         
-        nameField.layer.borderColor = ColorStyles.black.CGColor
-        nameField.layer.borderWidth = 1
-        amountField.layer.borderColor = ColorStyles.black.CGColor
-        amountField.layer.borderWidth = 1
-        reasonField.layer.borderColor = ColorStyles.black.CGColor
+        nameField.layer.borderWidth = 0.0
+        amountField.layer.borderWidth = 0.0
+        
+        let nameBorder = generateTextBorder(nameField)
+        let amountBorder = generateTextBorder(amountField)
+        
+        nameField.layer.addSublayer(nameBorder)
+        nameField.layer.masksToBounds = true
+        amountField.layer.addSublayer(amountBorder)
+        amountField.layer.masksToBounds = true
+        
+        
+        reasonField.layer.borderColor = UIColor.darkGrayColor().CGColor
         reasonField.layer.borderWidth = 1
     }
     
@@ -217,7 +255,7 @@ class AddNewTransactionController: UIViewController, UITextViewDelegate {
             }
             else {
                 let amount = (textView.text.stringByReplacingOccurrencesOfString("$", withString: "") as NSString).floatValue
-                textView.text = "$" + NSString(format: "%.2f", abs(amount))
+                textView.text = "$" + (NSString(format: "%.2f", abs(amount)) as String)
             }
         }
     }

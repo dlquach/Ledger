@@ -24,9 +24,11 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     var totalDue: Float = 0.0
     
     func createNewTransactionWithName() {
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("NewTransaction") as AddNewTransactionController
-        vc.defaultName = name
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("NewTransaction") as! AddNewTransactionController
+        vc.defaultName = name as String
+        self.navigationController?.presentViewController(vc, animated: true, completion: nil)
+
     }
     
     override func viewDidLoad() {
@@ -35,8 +37,8 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.allowsSelection = false
         self.navigationController?.hideShadow = true
         
-        self.name = account.valueForKey("name") as NSString
-        self.nameLabel.text = name
+        self.name = account.valueForKey("name") as! NSString
+        self.nameLabel.text = name as String
         
         // Set up table view stuff
         self.tableView.delegate = self
@@ -54,6 +56,7 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         super.viewWillAppear(animated)
         self.headerView.backgroundColor = ColorStyles.white
         self.updateHeaderView()
+        self.tableView.reloadData()
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     }
     
@@ -68,10 +71,10 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         
         // There's probably a way better way to handle plurality
         if (self.transactions.count == 1) {
-            self.numTransactionsLabel.text = NSString(format: "%d Transaction", self.transactions.count)
+            self.numTransactionsLabel.text = NSString(format: "%d Transaction", self.transactions.count) as String
         }
         else {
-            self.numTransactionsLabel.text = NSString(format: "%d Transactions", self.transactions.count)
+            self.numTransactionsLabel.text = NSString(format: "%d Transactions", self.transactions.count) as String
         }
         
         let tab = self.navigationController?.navigationController?.navigationBar
@@ -98,25 +101,32 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         // Wipe the most likely outdated transactions array
         self.transactions = [(NSString, Float, NSDate)]()
         var total: Float = 0.0
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let managedContext  = appDelegate.managedObjectContext!
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext  = appDelegate.managedObjectContext
         
         let fetchRequest = NSFetchRequest(entityName: "Transactions")
         let predicate = NSPredicate(format: "name == %@", name)
         fetchRequest.predicate = predicate
-        var error: NSError?
+
         
         // Get all the transactions
-        let entities = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]!
-        if entities.count != 0 {
-            for entity in entities {
-                let reason: NSString = entity.valueForKey("reason") as NSString
-                let amount: Float = entity.valueForKey("amount") as Float
-                let date: NSDate = entity.valueForKey("date") as NSDate
-                transactions.append((reason, amount, date))
-                total += amount
+        do {
+            let fetchResults =
+                try managedContext.executeFetchRequest(fetchRequest)
+            let entities = fetchResults as! [NSManagedObject]
+            if entities.count != 0 {
+                for entity in entities {
+                    let reason: NSString = entity.valueForKey("reason") as! NSString
+                    let amount: Float = entity.valueForKey("amount") as! Float
+                    let date: NSDate = entity.valueForKey("date") as! NSDate
+                    transactions.append((reason, amount, date))
+                    total += amount
+                }
             }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
         }
+
         return total
     }
     
@@ -130,7 +140,7 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell:TransactionCell = tableView.dequeueReusableCellWithIdentifier("transactionCell") as TransactionCell
+        let cell:TransactionCell = tableView.dequeueReusableCellWithIdentifier("transactionCell") as! TransactionCell
         let transaction = self.transactions[indexPath.row]
         
         let amount = transaction.1
@@ -138,8 +148,8 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         
-        cell.reasonLabel.text = transaction.0
-        cell.amountLabel.text = NSString(format: "$%.2f", abs(amount))
+        cell.reasonLabel.text = transaction.0 as String
+        cell.amountLabel.text = NSString(format: "$%.2f", abs(amount)) as String
         cell.dateLabel.text = dateFormatter.stringFromDate(transaction.2)
         
         if amount >= 0 {
@@ -157,26 +167,28 @@ class AccountDetailsController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-            let managedContext  = appDelegate.managedObjectContext!
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let managedContext  = appDelegate.managedObjectContext
             
             // Delete all the transcations associated with this person
             let fetchRequest = NSFetchRequest(entityName: "Transactions")
             let predicate = NSPredicate(format: "name == %@", name)
             fetchRequest.predicate = predicate
-            var error: NSError?
-            
-            let entities = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]!
-            
-            
-            managedContext.deleteObject(entities[indexPath.row])
-            
-            if !managedContext.save(&error) {
-                println("Could not save the delete!")
+            do {
+                let fetchResults =
+                    try managedContext.executeFetchRequest(fetchRequest)
+                let entities =  fetchResults as! [NSManagedObject]
+                
+                managedContext.deleteObject(entities[indexPath.row])
+                
+                self.transactions.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                self.updateHeaderView()
+    
+                
+            } catch let error as NSError {
+                print("Could not fetch \(error), \(error.userInfo)")
             }
-            self.transactions.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            self.updateHeaderView()
         }
         
     }

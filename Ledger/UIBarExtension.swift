@@ -22,7 +22,7 @@ extension UINavigationController {
             
         }
         set {
-            objc_setAssociatedObject(self,&UINavigationControllerExtension.hideShadowKey,newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self,&UINavigationControllerExtension.hideShadowKey,newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
             if newValue {
                 
